@@ -12,7 +12,7 @@
     <modules>
         <module>org-bigData-parent</module>
         <module>org-bigData-demo</module>
-        <module>mqDemo</module>
+        <module>org-mq-demo</module>
     </modules>
 
 </project>
