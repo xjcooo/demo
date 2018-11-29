@@ -1,3 +1,2 @@
 # demo
-update master
-设置一个错误信息
+    这是一个demo项目，用于实践各种Java组件。
