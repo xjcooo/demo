@@ -1,4 +1,4 @@
-package org.xjc.rabbitmq.customer;
+package org.xjc.demo.rabbitmq.customer;
 
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;

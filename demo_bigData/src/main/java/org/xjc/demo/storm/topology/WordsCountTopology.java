@@ -1,11 +1,11 @@
-package org.xjc.bigdata.storm.topology;
+package org.xjc.demo.storm.topology;
 
 import org.apache.storm.Config;
 import org.apache.storm.LocalCluster;
 import org.apache.storm.topology.TopologyBuilder;
-import org.xjc.bigdata.storm.bolt.MyBolt;
-import org.xjc.bigdata.storm.bolt.PrintBolt;
-import org.xjc.bigdata.storm.sout.MySpout;
+import org.xjc.demo.storm.bolt.MyBolt;
+import org.xjc.demo.storm.bolt.PrintBolt;
+import org.xjc.demo.storm.sout.MySpout;
 
 /**
  * Created by xjc on 2018-10-24.

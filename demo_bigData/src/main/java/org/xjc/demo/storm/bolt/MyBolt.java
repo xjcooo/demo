@@ -1,4 +1,4 @@
-package org.xjc.bigdata.storm.bolt;
+package org.xjc.demo.storm.bolt;
 
 import org.apache.storm.task.OutputCollector;
 import org.apache.storm.task.TopologyContext;

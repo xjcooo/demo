@@ -1,4 +1,4 @@
-package org.xjc.rabbitmq.provider;
+package org.xjc.demo.rabbitmq.provider;
 
 import org.springframework.amqp.core.FanoutExchange;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;

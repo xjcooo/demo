@@ -1,4 +1,4 @@
-package org.xjc.rabbitmq.test;
+package org.xjc.demo.rabbitmq.test;
 
 import java.awt.*;
 import java.awt.event.InputEvent;

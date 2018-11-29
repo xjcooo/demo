@@ -1,4 +1,4 @@
-package org.xjc.rabbitmq.config;
+package org.xjc.demo.rabbitmq.config;
 
 import com.rabbitmq.client.*;
 

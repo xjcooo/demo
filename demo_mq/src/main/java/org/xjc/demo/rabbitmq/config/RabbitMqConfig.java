@@ -1,11 +1,11 @@
-package org.xjc.rabbitmq.config;
+package org.xjc.demo.rabbitmq.config;
 
 import org.springframework.amqp.core.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.xjc.rabbitmq.customer.FanoutExchangeReceiver;
-import org.xjc.rabbitmq.customer.TopicExchangeReceiver;
-import org.xjc.rabbitmq.customer.WorkQueuesReceiver;
+import org.xjc.demo.rabbitmq.customer.TopicExchangeReceiver;
+import org.xjc.demo.rabbitmq.customer.FanoutExchangeReceiver;
+import org.xjc.demo.rabbitmq.customer.WorkQueuesReceiver;
 
 /**
  * Created by xjc on 2018-11-6.

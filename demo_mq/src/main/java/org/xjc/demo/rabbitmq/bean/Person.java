@@ -1,4 +1,4 @@
-package org.xjc.rabbitmq.bean;
+package org.xjc.demo.rabbitmq.bean;
 
 import java.io.Serializable;
 

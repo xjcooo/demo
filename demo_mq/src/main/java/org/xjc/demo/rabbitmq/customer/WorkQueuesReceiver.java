@@ -1,8 +1,8 @@
-package org.xjc.rabbitmq.customer;
+package org.xjc.demo.rabbitmq.customer;
 
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.util.StopWatch;
-import org.xjc.rabbitmq.config.RabbitMqConfig;
+import org.xjc.demo.rabbitmq.config.RabbitMqConfig;
 
 /**
  * Created by xjc on 2018-11-21.

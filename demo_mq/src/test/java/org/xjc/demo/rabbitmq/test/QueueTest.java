@@ -1,12 +1,11 @@
-package org.xjc.rabbitmq.test;
+package org.xjc.demo.rabbitmq.test;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.xjc.rabbitmq.provider.Queuer;
-import org.xjc.rabbitmq.provider.WorkQueuesSender;
+import org.xjc.demo.rabbitmq.provider.Queuer;
 
 /**
  * Created by xjc on 2018-11-6.

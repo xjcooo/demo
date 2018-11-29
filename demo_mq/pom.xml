@@ -3,14 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>org-bigData-parent</artifactId>
-        <groupId>org.xjc</groupId>
+        <artifactId>demo_parent</artifactId>
+        <groupId>org.xjc.demo</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.xjc.rabbitmq</groupId>
-    <artifactId>org-mq-demo</artifactId>
+    <groupId>org.xjc.demo</groupId>
+    <artifactId>demo_mq</artifactId>
 
     <dependencies>
         <dependency>

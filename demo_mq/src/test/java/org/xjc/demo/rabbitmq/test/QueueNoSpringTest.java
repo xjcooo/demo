@@ -1,8 +1,8 @@
-package org.xjc.rabbitmq.test;
+package org.xjc.demo.rabbitmq.test;
 
 import com.rabbitmq.client.*;
 import org.junit.Test;
-import org.xjc.rabbitmq.config.RabbitMqConfig;
+import org.xjc.demo.rabbitmq.config.RabbitMqConfig;
 
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;

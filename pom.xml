@@ -4,16 +4,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.xjc</groupId>
-    <artifactId>BigDataDemo</artifactId>
+    <groupId>org.xjc.demo</groupId>
+    <artifactId>demos</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
     <modules>
         <module>demo_bigData</module>
-        <module>demo_bigData_parent</module>
+        <module>demo_parent</module>
         <module>demo_mq</module>
-        <module>demo_rabbit</module>
+        <module>demo_web</module>
     </modules>
 
 </project>
