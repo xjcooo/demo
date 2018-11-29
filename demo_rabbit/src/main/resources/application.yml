@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: rabbitDemo
+    appName: demo
+
+
