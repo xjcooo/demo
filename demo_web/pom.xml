@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.xjc.demo.rabbit</groupId>
+    <groupId>org.xjc.demo</groupId>
     <artifactId>demo_web</artifactId>
 
     <dependencies>
