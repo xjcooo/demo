@@ -1,6 +1,10 @@
 spring:
   application:
-    name: rabbitDemo
-    appName: demo
-
+    name: demos
+    appName: rabbitDemo
+  rabbitmq:
+    host: rabbit
+    port: 5672
+    username: root
+    password: root
 

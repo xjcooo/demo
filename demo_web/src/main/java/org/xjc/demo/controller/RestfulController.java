@@ -3,18 +3,17 @@ package org.xjc.demo.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.xjc.demo.configs.Constants;
+import org.xjc.demo.configs.ConfigsBean;
 
 @RestController
 public class RestfulController {
 
     @Autowired
-    private Constants constants;
+    private ConfigsBean configsBean;
 
     @RequestMapping("/")
-    public String getAppName(){
-        System.out.println(constants.appName);
-        return Constants.appName;
+    public String getName(){
+        return configsBean.getName();
     }
 
     @RequestMapping("/demo/health")
@@ -23,5 +22,5 @@ public class RestfulController {
     }
 
     @RequestMapping("/demo/appName")
-    public String getName(){return constants.getName();}
+    public String getAppName(){return configsBean.getAppName();}
 }
