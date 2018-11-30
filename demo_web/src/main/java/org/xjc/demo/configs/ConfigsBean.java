@@ -3,6 +3,9 @@ package org.xjc.demo.configs;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+/**
+ * 配置项
+ */
 @Component
 @ConfigurationProperties(prefix = "spring.application")
 public class ConfigsBean {

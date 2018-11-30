@@ -21,6 +21,18 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-amqp</artifactId>
         </dependency>
+
+        <!--swagger2 dependency-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+        </dependency>
+        <!--swagger2 dependency-->
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>springloaded</artifactId>
@@ -72,7 +84,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>org.xjc.demo.Application</mainClass>
+                            <mainClass>org.xjc.demo.WebApplication</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
