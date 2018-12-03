@@ -40,6 +40,7 @@ public class QueueNoSpringTest {
     public void testSendWorkQueues() throws IOException {
 //        queueDeclare(RabbitMqConfig.QUEUE_NAME_WORK_QUEUES);
         for (int i = 0; i < 5; i++) {
+            System.out.println("send [x] xjc." + i);
             channel.basicPublish("", RabbitMqConfig.QUEUE_NAME_WORK_QUEUES, MessageProperties.PERSISTENT_TEXT_PLAIN, ("xjc."+i).getBytes());
         }
     }
