@@ -1,5 +1,6 @@
 package org.xjc.demo.rabbitmq.test;
 
+import com.google.common.base.Strings;
 import com.rabbitmq.client.*;
 import org.junit.After;
 import org.junit.Before;
@@ -32,6 +33,7 @@ public class QueueNoSpringTest {
 
     @After
     public void close() throws IOException, TimeoutException {
+        Strings.isNullOrEmpty("123");
         channel.close();
         connection.close();
     }
