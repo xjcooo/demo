@@ -22,7 +22,7 @@ public class RestfulController {
      * @return
      */
     @ApiOperation(value = "获取项目名称", notes = "")
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = {"", "/"}, method = RequestMethod.GET)
     public String getName(){
         return configsBean.getName();
     }
