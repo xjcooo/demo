@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <modules>
+        <module>demo_common</module>
         <module>demo_bigData</module>
         <module>demo_parent</module>
         <module>demo_mq</module>
