@@ -11,11 +11,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * controller增强器
+ * @ControllerAdvice、@RestControllerAdvice 区别和@Controller、@RestController的区别一致
  * Created by xjc on 2018-12-7.
  */
 @ControllerAdvice
 public class GlobalControllerHandler {
 
+    /**
+     * 统一返回restful格式的异常报文
+     * @param request
+     * @param e
+     * @return
+     */
     @ExceptionHandler(Exception.class)
     @ResponseBody
     public Object defaultError(HttpServletRequest request, Exception e) {
@@ -25,6 +33,11 @@ public class GlobalControllerHandler {
         return rs;
     }
 
+    /**
+     * 统一返回错误页面
+     * @param e
+     * @return
+     */
     @ExceptionHandler(PageException.class)
     public ModelAndView defaultErrorPage(Exception e) {
         ModelAndView modelAndView = new ModelAndView("error");
