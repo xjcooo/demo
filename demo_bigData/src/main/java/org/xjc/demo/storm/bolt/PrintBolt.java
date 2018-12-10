@@ -13,7 +13,7 @@ import java.util.Map;
  */
 public class PrintBolt extends BaseRichBolt {
 
-//    private static final Logger LOGGER = LoggerFactory.getLogger(PrintBolt.class);
+    //    private static final Logger LOGGER = LoggerFactory.getLogger(PrintBolt.class);
     private OutputCollector collector;
 
     public void prepare(Map map, TopologyContext topologyContext, OutputCollector outputCollector) {
