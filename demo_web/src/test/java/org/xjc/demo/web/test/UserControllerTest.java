@@ -14,9 +14,10 @@ import org.xjc.demo.controller.UserController;
 import java.util.ArrayList;
 
 import static org.mockito.BDDMockito.*;
-import static org.mockito.Mockito.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
  * Created by xjc on 2018-12-4.
@@ -44,7 +45,7 @@ public class UserControllerTest {
 
     }
 
-    public void testPut() throws Exception{
+    public void testPut() throws Exception {
 
     }
 }

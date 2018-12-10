@@ -16,7 +16,7 @@ public class Queuer {
     @Autowired
     private AmqpTemplate amqpTemplate;
 
-    public void sendMessage(String name){
+    public void sendMessage(String name) {
         amqpTemplate.convertAndSend(RabbitMqConfig.QUEUE_NAME, new Person(name));
     }
 }

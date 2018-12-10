@@ -12,7 +12,7 @@ public class QueueReceiver {
     private AmqpTemplate amqpTemplate;
 
     @RabbitListener(queues = "spring.boot.amqp.xjc.test.workQueues")
-    public void receiveMessage(String person){
-        System.out.println("message:<"+person+">");
+    public void receiveMessage(String person) {
+        System.out.println("message:<" + person + ">");
     }
 }

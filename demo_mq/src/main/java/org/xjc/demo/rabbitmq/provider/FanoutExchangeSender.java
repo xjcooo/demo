@@ -38,7 +38,7 @@ public class FanoutExchangeSender {
     }
 
     @Scheduled(initialDelay = 1000, fixedRate = 5000)
-    public void test1(){
+    public void test1() {
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
@@ -48,7 +48,7 @@ public class FanoutExchangeSender {
     }
 
     @Scheduled(initialDelay = 1000, fixedDelay = 5000)
-    public void test2(){
+    public void test2() {
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {

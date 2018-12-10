@@ -43,17 +43,30 @@ public class QueueNoSpringTest {
 //        queueDeclare(RabbitMqConfig.QUEUE_NAME_WORK_QUEUES);
         for (int i = 0; i < 5; i++) {
             System.out.println("send [x] xjc." + i);
-            channel.basicPublish("", RabbitMqConfig.QUEUE_NAME_WORK_QUEUES, MessageProperties.PERSISTENT_TEXT_PLAIN, ("xjc."+i).getBytes());
+            channel.basicPublish("", RabbitMqConfig.QUEUE_NAME_WORK_QUEUES,
+                    MessageProperties.PERSISTENT_TEXT_PLAIN, ("xjc." + i).getBytes());
         }
     }
 
     @Test
     public void testSendTopicExchange() throws IOException {
 //        queueDeclare(RabbitMqConfig.QUEUE_NAME_WORK_QUEUES);
-        channel.basicPublish(RabbitMqConfig.EXCHANGE_NAME_TOPIC, RabbitMqConfig.ROUTING_NAME_TOPIC11, MessageProperties.PERSISTENT_TEXT_PLAIN, RabbitMqConfig.ROUTING_NAME_TOPIC11.getBytes());
-        channel.basicPublish(RabbitMqConfig.EXCHANGE_NAME_TOPIC, RabbitMqConfig.ROUTING_NAME_TOPIC12, MessageProperties.PERSISTENT_TEXT_PLAIN, RabbitMqConfig.ROUTING_NAME_TOPIC12.getBytes());
-        channel.basicPublish(RabbitMqConfig.EXCHANGE_NAME_TOPIC, RabbitMqConfig.ROUTING_NAME_TOPIC01, MessageProperties.PERSISTENT_TEXT_PLAIN, RabbitMqConfig.ROUTING_NAME_TOPIC01.getBytes());
-        channel.basicPublish(RabbitMqConfig.EXCHANGE_NAME_TOPIC, RabbitMqConfig.ROUTING_NAME_TOPIC02, MessageProperties.PERSISTENT_TEXT_PLAIN, RabbitMqConfig.ROUTING_NAME_TOPIC02.getBytes());
+        channel
+                .basicPublish(RabbitMqConfig.EXCHANGE_NAME_TOPIC, RabbitMqConfig.ROUTING_NAME_TOPIC11,
+                        MessageProperties.PERSISTENT_TEXT_PLAIN,
+                        RabbitMqConfig.ROUTING_NAME_TOPIC11.getBytes());
+        channel
+                .basicPublish(RabbitMqConfig.EXCHANGE_NAME_TOPIC, RabbitMqConfig.ROUTING_NAME_TOPIC12,
+                        MessageProperties.PERSISTENT_TEXT_PLAIN,
+                        RabbitMqConfig.ROUTING_NAME_TOPIC12.getBytes());
+        channel
+                .basicPublish(RabbitMqConfig.EXCHANGE_NAME_TOPIC, RabbitMqConfig.ROUTING_NAME_TOPIC01,
+                        MessageProperties.PERSISTENT_TEXT_PLAIN,
+                        RabbitMqConfig.ROUTING_NAME_TOPIC01.getBytes());
+        channel
+                .basicPublish(RabbitMqConfig.EXCHANGE_NAME_TOPIC, RabbitMqConfig.ROUTING_NAME_TOPIC02,
+                        MessageProperties.PERSISTENT_TEXT_PLAIN,
+                        RabbitMqConfig.ROUTING_NAME_TOPIC02.getBytes());
     }
 
 }

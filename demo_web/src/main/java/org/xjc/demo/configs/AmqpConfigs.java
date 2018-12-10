@@ -12,10 +12,9 @@ public class AmqpConfigs {
 
     /**
      * 新建队列
-     * @return
      */
     @Bean
-    public Queue getQueue(){
+    public Queue getQueue() {
         return new Queue("spring.boot.amqp.xjc.test.workQueues", true, false, false);
     }
 

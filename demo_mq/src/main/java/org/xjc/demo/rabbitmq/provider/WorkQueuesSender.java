@@ -31,7 +31,9 @@ public class WorkQueuesSender {
         builder.append(Integer.toString(++count));
         String message = builder.toString();
         rabbitTemplate.convertAndSend(RabbitMqConfig.QUEUE_NAME_WORK_QUEUES, message);
-        System.out.println("[WorkQueueSender] Sent '" + message + "'," + this.hashCode()+"."+rabbitTemplate.hashCode());
+        System.out.println(
+                "[WorkQueueSender] Sent '" + message + "'," + this.hashCode() + "." + rabbitTemplate
+                        .hashCode());
     }
 
 }

@@ -17,8 +17,8 @@ public class Receiver {
     private AmqpTemplate amqpTemplate;
 
     @RabbitListener(queues = RabbitMqConfig.QUEUE_NAME)
-    public void receiveMessage(Person person){
-        System.out.println("message:<"+person+">");
+    public void receiveMessage(Person person) {
+        System.out.println("message:<" + person + ">");
     }
 
 }

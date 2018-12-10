@@ -3,8 +3,8 @@ package org.xjc.demo.rabbitmq.config;
 import org.springframework.amqp.core.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.xjc.demo.rabbitmq.customer.TopicExchangeReceiver;
 import org.xjc.demo.rabbitmq.customer.FanoutExchangeReceiver;
+import org.xjc.demo.rabbitmq.customer.TopicExchangeReceiver;
 import org.xjc.demo.rabbitmq.customer.WorkQueuesReceiver;
 
 /**
@@ -30,11 +30,11 @@ public class RabbitMqConfig {
     public static final String EXCHANGE_NAME_FANOUT = "spring.boot.amqp.xjc.test.fanoutExchange";
 
 
-
     @Bean
-    public Queue getTestQueue(){
+    public Queue getTestQueue() {
         return new Queue(QUEUE_NAME, true, false, false);
     }
+
     // work queues
     @Bean
     public Queue hello() {
@@ -57,23 +57,27 @@ public class RabbitMqConfig {
     // topic exchange
 
     @Bean
-    public TopicExchange topic(){
+    public TopicExchange topic() {
         return new TopicExchange(EXCHANGE_NAME_TOPIC);
     }
 
-    private static class topicExchangeConfig{
+    private static class topicExchangeConfig {
+
         @Bean
-        public TopicExchangeReceiver receiver(){
+        public TopicExchangeReceiver receiver() {
             return new TopicExchangeReceiver();
         }
+
         @Bean
-        public Queue autoDeleteQueue1(){
+        public Queue autoDeleteQueue1() {
             return new AnonymousQueue();
         }
+
         @Bean
-        public Queue autoDeleteQueue2(){
+        public Queue autoDeleteQueue2() {
             return new Queue(QUEUE_NAME_TOPIC_2);
         }
+
         @Bean
         public Binding binding1a(TopicExchange topic,
                                  Queue autoDeleteQueue1) {
@@ -81,6 +85,7 @@ public class RabbitMqConfig {
                     .to(topic)
                     .with(ROUTING_NAME_TOPIC1);
         }
+
         @Bean
         public Binding binding1b(TopicExchange topic,
                                  Queue autoDeleteQueue1) {
@@ -88,6 +93,7 @@ public class RabbitMqConfig {
                     .to(topic)
                     .with(ROUTING_NAME_TOPIC2);
         }
+
         @Bean
         public Binding binding2a(TopicExchange topic,
                                  Queue autoDeleteQueue2) {
@@ -96,13 +102,16 @@ public class RabbitMqConfig {
                     .with(ROUTING_NAME_TOPIC3);
         }
     }
+
     // topic exchange
     // fanout exchange  --  publish/subscribe
     @Bean
-    public FanoutExchange fanout(){
+    public FanoutExchange fanout() {
         return new FanoutExchange(EXCHANGE_NAME_FANOUT);
     }
-    private static class fanoutExchangeConfig{
+
+    private static class fanoutExchangeConfig {
+
         @Bean
         public Queue fanoutExchangeQueue1() {
             return new AnonymousQueue();
@@ -124,8 +133,11 @@ public class RabbitMqConfig {
                                 Queue fanoutExchangeQueue2) {
             return BindingBuilder.bind(fanoutExchangeQueue2).to(fanout);
         }
+
         @Bean
-        public FanoutExchangeReceiver receiver(){return new FanoutExchangeReceiver();}
+        public FanoutExchangeReceiver receiver() {
+            return new FanoutExchangeReceiver();
+        }
     }
     // fanout exchange  --  publish/subscribe
 

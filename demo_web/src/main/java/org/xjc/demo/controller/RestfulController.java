@@ -19,30 +19,31 @@ public class RestfulController {
 
     /**
      * 获取项目名
-     * @return
      */
     @ApiOperation(value = "获取项目名称", notes = "测试exception统一处理")
     @RequestMapping(value = {"", "/"}, method = RequestMethod.GET)
     public String getName() throws Exception {
-        if(1==1) throw new Exception("获取项目名称失败");
+        if (1 == 1) {
+            throw new Exception("获取项目名称失败");
+        }
         return configsBean.getName();
     }
 
     /**
      * 健康监测
-     * @return
      */
     @ApiOperation(value = "健康监测", notes = "测试应用健康状态")
     @RequestMapping(value = "/health", method = RequestMethod.GET)
-    public String getHealth(){
+    public String getHealth() {
         return "ok";
     }
 
     /**
      * 获取应用名
-     * @return
      */
     @ApiOperation(value = "获取应用名", notes = "查询当前应用的信息")
     @RequestMapping(value = "/appName", method = RequestMethod.GET)
-    public String getAppName(){return configsBean.getAppName();}
+    public String getAppName() {
+        return configsBean.getAppName();
+    }
 }

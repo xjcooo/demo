@@ -3,7 +3,8 @@ package org.xjc.demo.bean;
 /**
  * Created by xjc on 2018-12-4.
  */
-public class User{
+public class User {
+
     private Long id;
     private String name;
     private Integer age;

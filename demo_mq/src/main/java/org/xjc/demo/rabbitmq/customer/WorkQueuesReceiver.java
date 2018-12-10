@@ -16,7 +16,7 @@ public class WorkQueuesReceiver {
     }
 
     @RabbitListener(queues = RabbitMqConfig.QUEUE_NAME_WORK_QUEUES)
-    public void receive(String msg){
+    public void receive(String msg) {
         StopWatch watch = new StopWatch();
         watch.start();
         for (char item : msg.toCharArray()) {
@@ -29,11 +29,13 @@ public class WorkQueuesReceiver {
             }
         }
         watch.stop();
-        System.out.println("[WorkQueueReceiver] Tag["+tag+"] received '"+msg+"' Done in "+watch.getTotalTimeSeconds()+"s");
+        System.out.println(
+                "[WorkQueueReceiver] Tag[" + tag + "] received '" + msg + "' Done in " + watch
+                        .getTotalTimeSeconds() + "s");
     }
 
     @RabbitListener(queues = RabbitMqConfig.QUEUE_NAME_WORK_QUEUES)
-    public void receive2(String msg){
+    public void receive2(String msg) {
         StopWatch watch = new StopWatch();
         watch.start();
         for (char item : msg.toCharArray()) {
@@ -46,7 +48,9 @@ public class WorkQueuesReceiver {
             }
         }
         watch.stop();
-        System.out.println("[WorkQueueReceiver] Tag["+tag+0+"] received '"+msg+"' Done in "+watch.getTotalTimeSeconds()+"s");
+        System.out.println(
+                "[WorkQueueReceiver] Tag[" + tag + 0 + "] received '" + msg + "' Done in " + watch
+                        .getTotalTimeSeconds() + "s");
     }
 
 }

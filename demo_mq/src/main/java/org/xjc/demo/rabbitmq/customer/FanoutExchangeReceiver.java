@@ -26,8 +26,9 @@ public class FanoutExchangeReceiver {
         watch.start();
         doWork(in);
         watch.stop();
-        System.out.println("FanoutExchangeReceiver " + receiver + " [x] Received '" + in + "' Done in "
-                + watch.getTotalTimeSeconds() + "s");
+        System.out
+                .println("FanoutExchangeReceiver " + receiver + " [x] Received '" + in + "' Done in "
+                        + watch.getTotalTimeSeconds() + "s");
     }
 
     private void doWork(String in) throws InterruptedException {

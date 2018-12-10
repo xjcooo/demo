@@ -21,7 +21,7 @@ public class QueueTest {
     public void testSendMessage() {
         String[] s = {"123", "1234", "hello"};
         for (int i = 0; i < 10; i++) {
-            queuer.sendMessage(s[i%s.length]+","+i);
+            queuer.sendMessage(s[i % s.length] + "," + i);
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {

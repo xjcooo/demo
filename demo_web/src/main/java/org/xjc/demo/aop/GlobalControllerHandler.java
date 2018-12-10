@@ -14,7 +14,7 @@ import java.util.Map;
 public class GlobalControllerHandler {
 
     @ExceptionHandler(Exception.class)
-    public Object defaultError(HttpServletRequest request, Exception e){
+    public Object defaultError(HttpServletRequest request, Exception e) {
         Map<String, Object> rs = new HashMap<>();
         rs.put("exception", e.getMessage());
         rs.put("restUrl", request.getRequestURI());

@@ -10,16 +10,16 @@ public class MouseClickTest {
 
     public static void main(String[] args) {
         try {
-            int i=1;
+            int i = 1;
             System.out.println("start");
             Thread.sleep(1000);
             while (true) {
-                if(i>1000){
+                if (i > 1000) {
                     return;
                 }
                 mouseClick();
-                System.out.println("弟"+i+"次点击鼠标");
-                i+=1;
+                System.out.println("弟" + i + "次点击鼠标");
+                i += 1;
             }
 
         } catch (Exception e) {
@@ -27,7 +27,7 @@ public class MouseClickTest {
         }
     }
 
-    public static void mouseClick() throws Exception{
+    public static void mouseClick() throws Exception {
         Robot robot = new Robot();
         robot.mousePress(InputEvent.BUTTON1_MASK);
         robot.delay(100);

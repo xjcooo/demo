@@ -25,8 +25,9 @@ public class TopicExchangeReceiver {
         watch.start();
         doWork(in);
         watch.stop();
-        System.out.println("TopicExchangeReceiver " + receiver + " [x] Received '" + in + "' Done in "
-                + watch.getTotalTimeSeconds() + "s");
+        System.out
+                .println("TopicExchangeReceiver " + receiver + " [x] Received '" + in + "' Done in "
+                        + watch.getTotalTimeSeconds() + "s");
     }
 
     private void doWork(String in) throws InterruptedException {

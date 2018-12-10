@@ -19,7 +19,8 @@ public class MySpout extends BaseRichSpout {
 
     private SpoutOutputCollector collector;
 
-    public void open(Map map, TopologyContext topologyContext, SpoutOutputCollector spoutOutputCollector) {
+    public void open(Map map, TopologyContext topologyContext,
+                     SpoutOutputCollector spoutOutputCollector) {
         collector = spoutOutputCollector;
     }
 
@@ -29,7 +30,7 @@ public class MySpout extends BaseRichSpout {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        final String[] words = new String[] {"nathan", "mike", "jackson", "golda", "bertels"};
+        final String[] words = new String[]{"nathan", "mike", "jackson", "golda", "bertels"};
         final Random rand = new Random();
         final String word = words[rand.nextInt(words.length)];
         collector.emit(new Values(word));
