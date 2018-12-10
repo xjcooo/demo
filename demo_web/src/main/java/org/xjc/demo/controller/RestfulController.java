@@ -21,9 +21,10 @@ public class RestfulController {
      * 获取项目名
      * @return
      */
-    @ApiOperation(value = "获取项目名称", notes = "")
+    @ApiOperation(value = "获取项目名称", notes = "测试exception统一处理")
     @RequestMapping(value = {"", "/"}, method = RequestMethod.GET)
-    public String getName(){
+    public String getName() throws Exception {
+        if(1==1) throw new Exception("获取项目名称失败");
         return configsBean.getName();
     }
 
