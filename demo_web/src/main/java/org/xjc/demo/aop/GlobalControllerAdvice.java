@@ -38,7 +38,9 @@ public class GlobalControllerAdvice {
 
     @Before("controllerPointCut()")
     public void beforeMethod(JoinPoint joinPoint) {
-        logger.info("[GlobalControllerAdvice] method={}, args={}", joinPoint.getSignature().getName(), ArgsFormatUtil.springMvc(joinPoint));
+        logger.info("[GlobalControllerAdvice] method={}.{}(), args={}",
+                joinPoint.getSignature().getDeclaringTypeName(), joinPoint.getSignature().getName(),
+                ArgsFormatUtil.springMvc(joinPoint));
     }
 
     /**
