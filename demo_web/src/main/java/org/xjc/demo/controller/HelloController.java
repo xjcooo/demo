@@ -1,10 +1,10 @@
 package org.xjc.demo.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 import org.xjc.demo.exception.PageException;
 
 import java.util.Random;
@@ -25,22 +25,24 @@ public class HelloController {
 
     @GetMapping("/")
     @ResponseBody
-    public String hello2() throws Exception {
+    public String hello2(Model model) throws Exception {
         if (new Random().nextInt(2) == 1) throw new Exception("hello2 error");
         return "hello2";
     }
 
     @GetMapping("/index")
-    public String indexPage(ModelMap model) throws Exception {
+    public String indexPage(@ModelAttribute ModelMap model) throws Exception {
         model.addAttribute("url", "localhost:8080");
         return "index";
     }
 
 
-    @GetMapping("/home")
-    public String homePage(ModelMap model) throws PageException {
-        model.addAttribute("url", "localhost:8080");
+    @PostMapping("/home")
+    public ModelAndView homePage(ModelAndView modelAndView) throws PageException {
+        modelAndView.addObject("url", "localhost:8080");
+        modelAndView.addAllObjects(modelAndView.getModel());
+        modelAndView.setViewName("home");
         if (new Random().nextInt(2) == 1) throw new PageException("home error");
-        return "home";
+        return modelAndView;
     }
 }
