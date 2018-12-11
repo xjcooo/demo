@@ -12,6 +12,7 @@ import java.util.Map;
 
 /**
  * controller增强器
+ *
  * @ControllerAdvice、@RestControllerAdvice 区别和@Controller、@RestController的区别一致
  * Created by xjc on 2018-12-7.
  */
@@ -20,6 +21,7 @@ public class GlobalControllerHandler {
 
     /**
      * 统一返回restful格式的异常报文
+     *
      * @param request
      * @param e
      * @return
@@ -35,6 +37,7 @@ public class GlobalControllerHandler {
 
     /**
      * 统一返回错误页面
+     *
      * @param e
      * @return
      */

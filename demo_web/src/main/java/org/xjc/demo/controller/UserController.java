@@ -1,9 +1,11 @@
 package org.xjc.demo.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.xjc.demo.bean.User;
+import org.xjc.demo.service.UserService;
 
-import java.util.*;
+import java.util.List;
 
 /**
  * Created by xjc on 2018-12-4.
@@ -12,37 +14,37 @@ import java.util.*;
 @RequestMapping("/users")
 public class UserController {
 
-    //线程安全的Map
-    static Map<Long, User> users = Collections.synchronizedMap(new HashMap<>());
+//    //线程安全的Map
+//    static Map<Long, User> users = Collections.synchronizedMap(new HashMap<>());
+
+    @Autowired
+    private UserService userService;
 
     @RequestMapping(value = {"", "/"}, method = RequestMethod.GET)
     public List<User> getUserList() {
-        return new ArrayList<User>(users.values());
+        return userService.getUsers();
     }
 
     @RequestMapping(value = {"", "/"}, method = RequestMethod.POST)
     public String postUser(@ModelAttribute User user) {
-        users.put(user.getId(), user);
+        userService.add(user);
         return "success";
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public User getUser(@PathVariable Long id) {
-        return users.get(id);
+        return userService.getUserById(id);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     public String putUser(@PathVariable Long id, @ModelAttribute User user) {
-        User u = users.get(id);
-        u.setName(user.getName());
-        u.setAge(user.getAge());
-        users.put(id, u);
+        userService.modify(id, user);
         return "success";
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public String deleteUser(@PathVariable Long id) {
-        users.remove(id);
+        userService.delete(id);
         return "success";
     }
 }
