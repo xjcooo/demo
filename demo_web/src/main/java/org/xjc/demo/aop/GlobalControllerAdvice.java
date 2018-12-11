@@ -17,7 +17,7 @@ import java.util.Map;
  * Created by xjc on 2018-12-7.
  */
 @ControllerAdvice
-public class GlobalControllerHandler {
+public class GlobalControllerAdvice {
 
     /**
      * 统一返回restful格式的异常报文
