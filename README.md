@@ -14,3 +14,7 @@
     自定义线程池：
         配置参照:org.xjc.demo.configs.TaskPollConfig
         使用时，只需要在@Async中的value添加Bean的名字
+    
+    自定义线程池优雅退出配置：
+        executor.setWaitForTasksToCompleteOnShutdown(true);
+        executor.setAwaitTerminationSeconds(60);    

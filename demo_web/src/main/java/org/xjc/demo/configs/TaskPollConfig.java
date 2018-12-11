@@ -39,6 +39,11 @@ public class TaskPollConfig {
         executor.setKeepAliveSeconds(60);
         executor.setThreadNamePrefix("taskExecutor-");
         executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
+        /**
+         * 下面是优雅退出的两个配置
+         */
+        executor.setWaitForTasksToCompleteOnShutdown(true);
+        executor.setAwaitTerminationSeconds(60);
         return executor;
     }
 
