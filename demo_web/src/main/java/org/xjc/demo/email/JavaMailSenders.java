@@ -11,7 +11,6 @@ import org.springframework.web.servlet.view.freemarker.FreeMarkerConfig;
 
 import javax.annotation.PostConstruct;
 import javax.mail.internet.MimeMessage;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringWriter;
@@ -121,7 +120,7 @@ public class JavaMailSenders {
         model.put("username", "xjcooo");
 
         StringWriter stringWriter = new StringWriter();
-        template.process(model, new BufferedWriter(stringWriter));
+        template.process(model, stringWriter);
         String text = stringWriter.toString();
         stringWriter.flush();
         stringWriter.close();

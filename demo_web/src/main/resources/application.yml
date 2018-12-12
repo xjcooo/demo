@@ -10,7 +10,7 @@ spring:
   mail:
     host: smtp.exmail.qq.com
     username: xujiancheng@touker.com
-    password: Xjc7266868
+    password: 腾讯企业邮箱密码
     properties:
       mail:
         smtp:
