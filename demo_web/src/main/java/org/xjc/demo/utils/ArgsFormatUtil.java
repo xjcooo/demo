@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * 参数格式化
- *
+ * <p>
  * Created by xjc on 2018-12-11.
  */
 public class ArgsFormatUtil {
@@ -26,22 +26,22 @@ public class ArgsFormatUtil {
      * @param joinPoint
      * @return
      */
-    public static String springMvc(JoinPoint joinPoint){
+    public static String springMvc(JoinPoint joinPoint) {
         StringBuilder sb = new StringBuilder("{");
         try {
             Object[] args = joinPoint.getArgs();
             for (Object arg : args) {
-                if (arg instanceof ModelAndView){
+                if (arg instanceof ModelAndView) {
                     ModelAndView modelAndView = (ModelAndView) arg;
                     sb.append("ModelAndView[viewName#").append(modelAndView.getViewName()).append(",arg#")
                             .append(Joiner.on(",").withKeyValueSeparator("|").join(modelAndView.getModel()))
-                    .append("],");
-                } else if (arg instanceof Model){
+                            .append("],");
+                } else if (arg instanceof Model) {
                     Model model = (Model) arg;
                     sb.append("Model[arg#")
                             .append(Joiner.on(",").withKeyValueSeparator("|").join(model.asMap()))
                             .append("],");
-                } else if (arg instanceof ModelMap){
+                } else if (arg instanceof ModelMap) {
                     ModelMap modelMap = (ModelMap) arg;
                     sb.append("ModelMap[arg#")
                             .append(Joiner.on(",").withKeyValueSeparator("|").join(modelMap))
@@ -58,7 +58,7 @@ public class ArgsFormatUtil {
                     sb.append(arg).append(",");
                 }
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             logger.error("[ArgsFormatUtil] error,", e);
             return "";
         }

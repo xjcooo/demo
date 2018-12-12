@@ -7,14 +7,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by xjc on 2018-12-11.
@@ -49,8 +46,8 @@ public class AsyncTaskTest {
         asyncTask.doOne();
         asyncTask.doTwo();
         Future<String> callbackRs = asyncTask.doCallback();
-        while (true){
-            if (callbackRs.isDone()){
+        while (true) {
+            if (callbackRs.isDone()) {
                 System.out.println(callbackRs.get());
                 break;
             }

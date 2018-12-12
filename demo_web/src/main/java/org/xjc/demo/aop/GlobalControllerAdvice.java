@@ -32,7 +32,7 @@ public class GlobalControllerAdvice {
     private static final Logger logger = LoggerFactory.getLogger(GlobalControllerAdvice.class);
 
     @Pointcut("execution(public * org.xjc.demo.controller.*.*(..))")
-    public void controllerPointCut(){
+    public void controllerPointCut() {
 
     }
 

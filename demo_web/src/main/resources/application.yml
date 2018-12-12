@@ -1,20 +1,20 @@
 spring:
-  application:
-    name: demos
-    appName: rabbitDemo
-  rabbitmq:
-    host: rabbit
-    port: 5672
-    username: root
-    password: root
-  mail:
-    host: smtp.exmail.qq.com
-    username: xujiancheng@touker.com
-    password: 腾讯企业邮箱密码
-    properties:
-      mail:
-        smtp:
-          auth: true
-          starttls:
-            enable: false
-            required: false
+    application:
+        name: demos
+        appName: rabbitDemo
+    rabbitmq:
+        host: rabbit
+        port: 5672
+        username: root
+        password: root
+    mail:
+        host: smtp.exmail.qq.com
+        username: xujiancheng@touker.com
+        password: 腾讯企业邮箱密码
+        properties:
+            mail:
+                smtp:
+                    auth: true
+                    starttls:
+                        enable: false
+                        required: false
