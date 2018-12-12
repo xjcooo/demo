@@ -7,4 +7,14 @@ spring:
     port: 5672
     username: root
     password: root
-
+  mail:
+    host: smtp.exmail.qq.com
+    username: xujiancheng@touker.com
+    password: Xjc7266868
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: false
+            required: false
