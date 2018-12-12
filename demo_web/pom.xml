@@ -6,11 +6,13 @@
         <groupId>org.xjc.demo</groupId>
         <artifactId>demo_parent</artifactId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath>../demo_parent</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.xjc.demo</groupId>
     <artifactId>demo_web</artifactId>
+    <version>1.0-SNAPSHOT</version>
 
     <dependencies>
         <dependency>
@@ -41,11 +43,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-freemarker</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
         <!--swagger2 dependency-->
@@ -87,8 +84,26 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>pl.project13.maven</groupId>
+                <artifactId>git-commit-id-plugin</artifactId>
+                <version>2.1.5</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>revision</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <dateFormat>yyyy-MM-dd HH:mm:ss</dateFormat>
+                    <dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
+                    <generateGitPropertiesFilename>target/classes/git.properties</generateGitPropertiesFilename>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.0.1.RELEASE</version>
                 <configuration>
                     <!-- fork : 如果没有该项配置，devtools不会起作用，即应用不会restart -->
                     <!--<fork>true</fork>-->
@@ -137,6 +152,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.2</version>
                 <configuration>
                     <source>8</source>
                     <target>8</target>

@@ -1,7 +1,7 @@
 spring:
     application:
         name: demos
-        appName: rabbitDemo
+        appName: demo_web
     rabbitmq:
         host: rabbit
         port: 5672
@@ -21,3 +21,10 @@ spring:
 management:
     security:
         enabled: false
+    info:
+        git:
+            mode: full
+info:
+    app:
+        name: demos
+        appName: demo_web中文
