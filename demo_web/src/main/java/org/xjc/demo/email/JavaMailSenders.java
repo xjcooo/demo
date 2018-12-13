@@ -1,6 +1,7 @@
 package org.xjc.demo.email;
 
 import freemarker.template.Template;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.SimpleMailMessage;
@@ -20,6 +21,7 @@ import java.util.Map;
 /**
  * Created by xjc on 2018-12-12.
  */
+@Slf4j(topic = "topic")
 @Component
 public class JavaMailSenders {
 
@@ -37,6 +39,7 @@ public class JavaMailSenders {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        log.info("[Started freeMarkerTemplate]");
     }
 
     /**
