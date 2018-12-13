@@ -27,15 +27,16 @@
         executor.setAwaitTerminationSeconds(60);    
 
 ## lombok
-    链接：[点击这里](https://www.jianshu.com/p/365ea41b3573)
+    更多使用说明：
+   [点击这里](https://www.jianshu.com/p/365ea41b3573)
     使用方式：1. intellij idea 安装 lombok plugin 插件， 2. 添加下述jar依赖
 ```xml
-       <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.4</version>
-            <scope>provided</scope>
-        </dependency>
+   <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>1.18.4</version>
+        <scope>provided</scope>
+    </dependency>
 ```                   
     常见注解：
         @Setter
@@ -54,18 +55,18 @@
         @Synchronized
         还有log日志注解方式：
 ```java
-        //@CommonsLog
-        private static final org.apache.commons.logging.Log log = org.apache.commons.logging.LogFactory.getLog(LogExample.class);
-        //@JBossLog
-        private static final org.jboss.logging.Logger log = org.jboss.logging.Logger.getLogger(LogExample.class);
-        //@Log
-        private static final java.util.logging.Logger log = java.util.logging.Logger.getLogger(LogExample.class.getName());
-        //@Log4j
-        private static final org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(LogExample.class);
-        //@Log4j2
-        private static final org.apache.logging.log4j.Logger log = org.apache.logging.log4j.LogManager.getLogger(LogExample.class);
-        //@Slf4j
-        private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(LogExample.class);
-        //@XSlf4j
-        private static final org.slf4j.ext.XLogger log = org.slf4j.ext.XLoggerFactory.getXLogger(LogExample.class);
+    //@CommonsLog
+    private static final org.apache.commons.logging.Log log = org.apache.commons.logging.LogFactory.getLog(LogExample.class);
+    //@JBossLog
+    private static final org.jboss.logging.Logger log = org.jboss.logging.Logger.getLogger(LogExample.class);
+    //@Log
+    private static final java.util.logging.Logger log = java.util.logging.Logger.getLogger(LogExample.class.getName());
+    //@Log4j
+    private static final org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(LogExample.class);
+    //@Log4j2
+    private static final org.apache.logging.log4j.Logger log = org.apache.logging.log4j.LogManager.getLogger(LogExample.class);
+    //@Slf4j
+    private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(LogExample.class);
+    //@XSlf4j
+    private static final org.slf4j.ext.XLogger log = org.slf4j.ext.XLoggerFactory.getXLogger(LogExample.class);
 ```
