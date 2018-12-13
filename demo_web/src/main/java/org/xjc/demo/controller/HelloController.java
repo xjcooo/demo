@@ -1,5 +1,6 @@
 package org.xjc.demo.controller;
 
+import io.swagger.annotations.Api;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -12,6 +13,7 @@ import java.util.Random;
 /**
  * Created by xjc on 2018-12-7.
  */
+@Api("hello控制类")
 @Controller
 @RequestMapping("/hello")
 public class HelloController {

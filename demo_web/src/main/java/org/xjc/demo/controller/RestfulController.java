@@ -1,5 +1,6 @@
 package org.xjc.demo.controller;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +11,7 @@ import org.xjc.demo.configs.ConfigsBean;
 /**
  * restful测试
  */
+@Api(value = "Rest控制类", consumes = "xjcooo", produces = "xjc", description = "restful测试控制类")
 @RestController
 @RequestMapping("/demo")
 public class RestfulController {
