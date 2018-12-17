@@ -7,6 +7,20 @@ spring:
         port: 5672
         username: root
         password: root
+    redis:
+        host: redis
+        port: 6379
+        pool:
+            max-active: 8
+            max-idle: 8
+            min-idle: 0
+            max-wait: -1
+    datasource:
+        url: jdbc:mysql://127.0.0.1:3306/world
+        username: root
+        password: root
+        driver-class-name: com.mysql.jdbc.Driver
+
     mail:
         host: smtp.exmail.qq.com
         username: xujiancheng@touker.com
