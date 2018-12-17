@@ -43,7 +43,7 @@ public class OperatorTest {
         println();
 
         // delete key
-//        redisTemplate.delete(KEY);
+        redisTemplate.delete(KEY);
         println();
 
 
