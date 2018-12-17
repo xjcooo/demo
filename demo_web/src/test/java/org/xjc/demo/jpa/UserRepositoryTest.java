@@ -26,14 +26,17 @@ public class UserRepositoryTest {
 
     @Before
     public void setUp() throws Exception {
+        testAdd();
     }
 
     @After
     public void tearDown() throws Exception {
+        testDelete();
     }
 
-    @Test
+//    @Test
     public void testAdd() {
+        log.info("users add");
         User user = null;
         for (int i = 0; i < 10; i++) {
             user = new User();
@@ -45,9 +48,9 @@ public class UserRepositoryTest {
         log();
     }
 
-    @Test
+//    @Test
     public void testDelete() {
-        users = userRepository.findAll();
+        log.info("users delete");
         for (User user : users) {
             userRepository.delete(user.getId());
         }
@@ -56,8 +59,16 @@ public class UserRepositoryTest {
 
     @Test
     public void testFindAllByName() {
-        users = userRepository.findAllByNameEquals("123");
-        log();
+        List<User> users = userRepository.findAllByName("xjc1");
+        log(users);
+    }
+
+    private void log(List<User> users) {
+        int count = 0;
+        log.info("users-info");
+        for (User user : users) {
+            log.info("{}.{}", ++count, user);
+        }
     }
 
     private void log() {
