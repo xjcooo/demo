@@ -12,11 +12,11 @@ import java.util.List;
  * Created by xjc on 2018-12-17.
  */
 @Repository
-@CacheConfig(cacheNames = "userList")
+@CacheConfig(cacheNames = "users")
 public interface UserRepository extends JpaRepository<User, Long> {
 
     List<User> findAllByName(String name);
 
-    @Cacheable
+    @Cacheable(value = "userList", key = "methodName")
     List<User> findAll();
 }

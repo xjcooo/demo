@@ -30,11 +30,11 @@ public class OperatorTest {
 
     @Test
     public void deleteKey() {
-        Set<String> rs = stringRedisTemplate.keys("usersCache:*");
+        Set<String> rs = stringRedisTemplate.keys("*");
         for (String key : rs) {
             System.out.println(key);
         }
-        redisTemplate.delete(rs);
+//        redisTemplate.delete(rs);
     }
 
     @Test
