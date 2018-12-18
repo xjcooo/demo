@@ -12,8 +12,6 @@ import org.xjc.demo.bean.User;
 
 import java.util.List;
 
-import static org.junit.Assert.*;
-
 @Slf4j
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -34,7 +32,7 @@ public class UserRepositoryTest {
         testDelete();
     }
 
-//    @Test
+    //    @Test
     public void testAdd() {
         log.info("users add");
         User user = null;
@@ -48,12 +46,14 @@ public class UserRepositoryTest {
         log();
     }
 
-//    @Test
+    //    @Test
     public void testDelete() {
         log.info("users delete");
+        log();
         for (User user : users) {
             userRepository.delete(user.getId());
         }
+        users = userRepository.findAll();
         log();
     }
 
@@ -74,6 +74,7 @@ public class UserRepositoryTest {
     private void log() {
         int count = 0;
         log.info("users-info");
+        if (users != null)
         for (User user : users) {
             log.info("{}.{}", ++count, user);
         }

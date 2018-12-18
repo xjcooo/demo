@@ -37,6 +37,8 @@ spring:
                     starttls:
                         enable: false
                         required: false
+    jpa:
+        show-sql: true
 management:
     security:
         enabled: false
@@ -47,3 +49,4 @@ info:
     app:
         name: demos
         appName: demo_web中文
+debug: true

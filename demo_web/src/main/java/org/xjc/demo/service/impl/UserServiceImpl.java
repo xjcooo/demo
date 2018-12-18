@@ -1,10 +1,11 @@
 package org.xjc.demo.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.xjc.demo.bean.User;
+import org.xjc.demo.jpa.UserRepository;
 import org.xjc.demo.service.UserService;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,6 +15,9 @@ import java.util.List;
 @Component
 public class UserServiceImpl implements UserService {
 
+    @Autowired
+    private UserRepository userRepository;
+
     /**
      * 获取所有user
      *
@@ -21,7 +25,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public List<User> getUsers() {
-        return new ArrayList<>(users.values());
+        return userRepository.findAll();
     }
 
     /**
@@ -32,7 +36,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public User getUserById(Long id) {
-        return users.get(id);
+        return userRepository.getOne(id);
     }
 
     /**
@@ -42,7 +46,8 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public void add(User user) {
-        users.put(user.getId(), user);
+        user.setId(null);
+        userRepository.save(user);
     }
 
     /**
@@ -52,7 +57,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public void delete(Long id) {
-        users.remove(id);
+        userRepository.delete(id);
     }
 
     /**
@@ -63,9 +68,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public void modify(Long id, User user) {
-        User origin = users.get(id);
-        origin.setName(user.getName());
-        origin.setAge(user.getAge());
-        users.put(id, origin);
+        user.setId(id);
+        userRepository.save(user);
     }
 }
