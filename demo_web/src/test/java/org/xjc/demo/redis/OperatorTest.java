@@ -30,7 +30,7 @@ public class OperatorTest {
 
     @Test
     public void deleteKey() {
-        Set<String> rs = stringRedisTemplate.keys("*");
+        Set<String> rs = stringRedisTemplate.keys("userList:*");
         for (String key : rs) {
             System.out.println(key);
         }
