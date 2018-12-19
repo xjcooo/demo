@@ -2,7 +2,7 @@
 这是一个demo项目，用于实践各种Java组件。
 # 目录
 - [1. swagger2](#1-swagger2)
-- [2. SpringMVC异常统一处理](#2-SpringMVC异常统一处理)
+- [2. SpringMVC异常统一处理](#2-springMVC异常统一处理)
 - [3. 异步任务](#3-异步任务)
 - [4. lombok](#4-lombok)
 - [5. redis做集中式缓存](#5-redis做集中式缓存)
