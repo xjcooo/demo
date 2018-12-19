@@ -1,7 +1,7 @@
 # demo
 这是一个demo项目，用于实践各种Java组件。
 # 目录
-- [1. swagger2](# 1. swagger2)
+- [1. swagger2](#1. swagger2)
 ## 1. swagger2
 访问url：http://localhost:8080/swagger-ui.html
 ## 2. SpringMVC异常统一处理
