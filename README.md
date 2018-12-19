@@ -40,20 +40,20 @@ SpringMVC异常分两种：1.访问页面异常，2.restful访问异常
     </dependency>
 ```                   
 常见注解：
-@Setter
-@Getter
-@Data
-@Log(这是一个泛型注解，具体有很多种形式)
-@AllArgsConstructor
-@NoArgsConstructor
-@EqualsAndHashCode
-@NonNull
-@Cleanup
-@ToString
-@RequiredArgsConstructor
-@Value
-@SneakyThrows
-@Synchronized
+    @Setter
+    @Getter
+    @Data
+    @Log(这是一个泛型注解，具体有很多种形式)
+    @AllArgsConstructor
+    @NoArgsConstructor
+    @EqualsAndHashCode
+    @NonNull
+    @Cleanup
+    @ToString
+    @RequiredArgsConstructor
+    @Value
+    @SneakyThrows
+    @Synchronized
 还有log日志注解方式：
 ```java
     //@CommonsLog
