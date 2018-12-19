@@ -17,6 +17,10 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     List<User> findAllByName(String name);
 
+    /**
+     * 该缓存的配置方式，最终在redis中的key值是 userList:findAll
+     * @return
+     */
     @Cacheable(value = "userList", key = "methodName")
     List<User> findAll();
 }

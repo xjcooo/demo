@@ -4,6 +4,7 @@ import com.google.gson.GsonBuilder;
 import org.apache.tomcat.util.security.MD5Encoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,7 +25,7 @@ import java.util.Map;
 /**
  * Created by xjc on 2018-12-17.
  */
-//@EnableCaching
+@EnableCaching
 @Configuration
 public class CacheConfig {
 
@@ -38,6 +39,10 @@ public class CacheConfig {
      */
     @Bean
     public CacheManager createCacheManager() {
+        /**
+         * 缓存存储格式配置
+         * 配置redis中使用字符串类型的key和hash key，使用json格式的value和hash value
+         */
         redisTemplate.setKeySerializer(new StringRedisSerializer());
         redisTemplate.setValueSerializer(new GenericJackson2JsonRedisSerializer());
         redisTemplate.setHashKeySerializer(new StringRedisSerializer());
@@ -45,7 +50,8 @@ public class CacheConfig {
 
 
         RedisCacheManager cacheManager = new RedisCacheManager(redisTemplate);
-        cacheManager.setDefaultExpiration(60);// 过期时间
+        cacheManager.setDefaultExpiration(60);// 设置key的过期时间
+        // redis中存储key值，使用@Cacheable的value做前缀
         cacheManager.setUsePrefix(true);
         cacheManager.setCachePrefix(new RedisCachePrefix() {
             private final RedisSerializer<String> serializer = new StringRedisSerializer();
@@ -60,6 +66,10 @@ public class CacheConfig {
         return cacheManager;
     }
 
+    /**
+     * key值生成器，需要在@Cacheable的keyGenerator属性中配置该生成器，例如（@Cacheable(keyGenerator="keyGenerator")
+     * @return
+     */
     @Bean
     public KeyGenerator keyGenerator() {
         return new KeyGenerator() {

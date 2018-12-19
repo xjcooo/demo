@@ -71,3 +71,6 @@ SpringMVC异常分两种：1.访问页面异常，2.restful访问异常
     //@XSlf4j
     private static final org.slf4j.ext.XLogger log = org.slf4j.ext.XLoggerFactory.getXLogger(LogExample.class);
 ```                                                                                                                             
+## redis做集中式缓存
+详见CacheConfig、UserRepository， 测试类：UserRepositoryTest
+
