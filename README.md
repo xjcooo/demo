@@ -1,11 +1,13 @@
 # demo
 这是一个demo项目，用于实践各种Java组件。
-## swagger2
+# 目录
+[1. swagger2](## 1. swagger2)
+## 1. swagger2
 访问url：http://localhost:8080/swagger-ui.html
-## SpringMVC异常统一处理
+## 2. SpringMVC异常统一处理
 SpringMVC异常分两种：1.访问页面异常，2.restful访问异常
 处理两种异常需要定义两种不同的异常进行抛出，然后分别定义处理方式，详细见GlobalControllerHandler and HelloController
-## 异步任务
+## 3. 异步任务
 参照org.xjc.demo.task.AsyncTask
 * 使用方式:
     启动类上添加@EnableAsync，然后使用@Async注解异步方法
@@ -26,7 +28,7 @@ SpringMVC异常分两种：1.访问页面异常，2.restful访问异常
     executor.setWaitForTasksToCompleteOnShutdown(true);
     executor.setAwaitTerminationSeconds(60);    
 
-## lombok
+## 4. lombok
 更多使用说明：
 [点击这里](https://www.jianshu.com/p/365ea41b3573)
 
@@ -71,6 +73,6 @@ SpringMVC异常分两种：1.访问页面异常，2.restful访问异常
     //@XSlf4j
     private static final org.slf4j.ext.XLogger log = org.slf4j.ext.XLoggerFactory.getXLogger(LogExample.class);
 ```                                                                                                                             
-## redis做集中式缓存
+## 5. redis做集中式缓存
 详见CacheConfig、UserRepository， 测试类：UserRepositoryTest
 
