@@ -54,7 +54,7 @@ SpringMVC异常分两种：1.访问页面异常，2.restful访问异常
 * @Value
 * @SneakyThrows
 * @Synchronized
-还有log日志注解方式：
+* 还有log日志注解方式：
 ```java
     //@CommonsLog
     private static final org.apache.commons.logging.Log log = org.apache.commons.logging.LogFactory.getLog(LogExample.class);
