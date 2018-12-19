@@ -40,8 +40,8 @@ SpringMVC异常分两种：1.访问页面异常，2.restful访问异常
     </dependency>
 ```                   
 常见注解：
-    1. @Setter
-    2. @Getter
+1. @Setter
+2. @Getter
     @Data
     @Log(这是一个泛型注解，具体有很多种形式)
     @AllArgsConstructor
