@@ -1,6 +1,11 @@
+# IntelliJ IDEA files
 .idea/*
 *.iml
+# Maven build files
 */target/
+*.log
+
+# eclipse files
 *.settings/
 *.project
 *.classpath
