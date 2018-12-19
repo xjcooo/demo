@@ -75,8 +75,8 @@ public class UserRepositoryTest {
         int count = 0;
         log.info("users-info");
         if (users != null)
-        for (User user : users) {
-            log.info("{}.{}", ++count, user);
-        }
+            for (User user : users) {
+                log.info("{}.{}", ++count, user);
+            }
     }
 }

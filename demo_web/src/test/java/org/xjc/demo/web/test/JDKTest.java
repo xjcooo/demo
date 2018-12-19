@@ -8,7 +8,7 @@ import java.util.Queue;
  */
 public class JDKTest {
 
-    public void testQueue(){
+    public void testQueue() {
         Queue queue;
         Deque deque;
     }
