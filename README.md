@@ -1,7 +1,8 @@
 # demo
 这是一个demo项目，用于实践各种Java组件。
 # 目录
-- [1. swagger2](https://github.com/xjcooo/demo/blob/master/README.md#1.swagger2)
+- [1. swagger2](https://github.com/xjcooo/demo/blob/master/README.md#1-swagger2)
+- [4. lombok](https://github.com/xjcooo/demo/blob/master/README.md#4-lombok)
 ## 1. swagger2
 访问url：http://localhost:8080/swagger-ui.html
 ## 2. SpringMVC异常统一处理
