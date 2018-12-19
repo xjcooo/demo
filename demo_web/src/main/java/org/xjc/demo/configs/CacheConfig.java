@@ -33,10 +33,11 @@ public class CacheConfig {
 
     /**
      * 修改redis缓存中key的生成方式
+     *
      * @return
      */
     @Bean
-    public CacheManager createCacheManager(){
+    public CacheManager createCacheManager() {
         redisTemplate.setKeySerializer(new StringRedisSerializer());
         redisTemplate.setValueSerializer(new GenericJackson2JsonRedisSerializer());
         redisTemplate.setHashKeySerializer(new StringRedisSerializer());
@@ -60,7 +61,7 @@ public class CacheConfig {
     }
 
     @Bean
-    public KeyGenerator keyGenerator(){
+    public KeyGenerator keyGenerator() {
         return new KeyGenerator() {
             @Override
             public Object generate(Object target, Method method, Object... params) {
@@ -86,7 +87,7 @@ public class CacheConfig {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
-                s= MD5Encoder.encode(hash);//使用MD5生成位移key
+                s = MD5Encoder.encode(hash);//使用MD5生成位移key
                 return "userRepository" + s;
             }
         };
