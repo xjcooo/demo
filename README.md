@@ -2,7 +2,10 @@
 这是一个demo项目，用于实践各种Java组件。
 # 目录
 - [1. swagger2](https://github.com/xjcooo/demo/blob/master/README.md#1-swagger2)
+- [2. SpringMVC异常统一处理](#2-SpringMVC异常统一处理)
+- [3. 异步任务](#3-异步任务)
 - [4. lombok](https://github.com/xjcooo/demo/blob/master/README.md#4-lombok)
+- [5. redis做集中式缓存](#5-redis做集中式缓存)
 ## 1. swagger2
 访问url：http://localhost:8080/swagger-ui.html
 ## 2. SpringMVC异常统一处理
