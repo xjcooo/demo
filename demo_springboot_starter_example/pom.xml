@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.xjc.demo</groupId>
+    <groupId>org.xjc.demo.example</groupId>
     <artifactId>demo_springboot_starter_example</artifactId>
 
     <dependencies>
