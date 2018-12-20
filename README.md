@@ -105,5 +105,6 @@ SpringMVC异常分两种：1.访问页面异常，2.restful访问异常
     @ConditionalOnNotWebApplication:当前项目不是Web项目的条件下  
     @ConditionalOnProperty:指定的属性是否有指定的值  
     @ConditionalOnResource:类路径下是否有指定的资源  
-    @ConditionalOnSingleCandidate:当指定的Bean在容器中只有一个，或者在有多个Bean的情况下，用来指定首选的Bean @ConditionalOnWebApplication:当前项目是Web项目的条件下  
+    @ConditionalOnSingleCandidate:当指定的Bean在容器中只有一个，或者在有多个Bean的情况下，
+        用来指定首选的Bean @ConditionalOnWebApplication:当前项目是Web项目的条件下  
 ```
