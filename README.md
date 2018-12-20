@@ -1,5 +1,5 @@
 # demo
-这是一个demo项目，用于实践各种Java组件。
+这是一个demo项目，用于实践各种Java组件,包括SpringBoot/SpringCloud,但不仅限于此。
 # 目录
 - [1. swagger2](#1-swagger2)
 - [2. SpringMVC异常统一处理](#2-springmvc异常统一处理)
@@ -8,12 +8,20 @@
 - [5. redis做集中式缓存](#5-redis做集中式缓存)
 - [6. 自定义SpringBoot-starter开发](#6-自定义springboot-starter开发)
 ## 1. swagger2
+
 访问url：http://localhost:8080/swagger-ui.html
+
+配置方式见:Swagger2AppConfig
+
 ## 2. SpringMVC异常统一处理
+
 SpringMVC异常分两种：1.访问页面异常，2.restful访问异常
 处理两种异常需要定义两种不同的异常进行抛出，然后分别定义处理方式，详细见GlobalControllerHandler and HelloController
+
 ## 3. 异步任务
+
 参照org.xjc.demo.task.AsyncTask
+
 * 使用方式:
     启动类上添加@EnableAsync，然后使用@Async注解异步方法
     使用Futrue<>返回值进行回调处理-回调结果可以通过其get方法获取
@@ -34,10 +42,13 @@ SpringMVC异常分两种：1.访问页面异常，2.restful访问异常
     executor.setAwaitTerminationSeconds(60);    
 
 ## 4. lombok
+
 更多使用说明：
 [点击这里](https://www.jianshu.com/p/365ea41b3573)
 
-使用方式：1. intellij idea 安装 lombok plugin 插件， 2. 添加下述jar依赖
+使用方式：
+- 1. intellij idea 安装 lombok plugin 插件， 
+- 2. 添加下述jar依赖
 ```xml
     <dependency>
         <groupId>org.projectlombok</groupId>
@@ -82,6 +93,9 @@ SpringMVC异常分两种：1.访问页面异常，2.restful访问异常
 详见CacheConfig、UserRepository， 测试类：UserRepositoryTest
 
 ## 6. 自定义SpringBoot-starter开发
+
+参考项目:demo_springboot_starter and demo_springboot_starter_example
+
 使用的Spring官方的Starter一般采取spring-boot-starter-{name} 的命名方式，如 spring-boot-starter-web 。
     而非官方的Starter，官方建议 artifactId 命名应遵循{name}-spring-boot-starter 的格式。
 
