@@ -6,6 +6,7 @@
 - [3. 异步任务](#3-异步任务)
 - [4. lombok](#4-lombok)
 - [5. redis做集中式缓存](#5-redis做集中式缓存)
+- [6. 自定义SpringBoot-starter开发](#6-自定义springboot-starter开发)
 ## 1. swagger2
 访问url：http://localhost:8080/swagger-ui.html
 ## 2. SpringMVC异常统一处理
@@ -80,3 +81,29 @@ SpringMVC异常分两种：1.访问页面异常，2.restful访问异常
 ## 5. redis做集中式缓存
 详见CacheConfig、UserRepository， 测试类：UserRepositoryTest
 
+## 6. 自定义SpringBoot-starter开发
+使用的Spring官方的Starter一般采取spring-boot-starter-{name} 的命名方式，如 spring-boot-starter-web 。
+    而非官方的Starter，官方建议 artifactId 命名应遵循{name}-spring-boot-starter 的格式。
+
+开发步骤:
+1. SpringBoot 在启动时会去依赖的starter包中寻找 resources/META-INF/spring.factories 文件，
+    然后根据文件中配置的Jar包去扫描项目所依赖的Jar包，这类似于 Java 的 SPI 机制。
+2. 根据 spring.factories配置加载AutoConfigure类
+3. 根据 @Conditional注解的条件，进行自动配置并将Bean注入Spring Context 上下文当中。
+    也可以使用@ImportAutoConfiguration({MyServiceAutoConfiguration.class}) 指定自动配置哪些类
+
+备注:
+```text
+    列举SpringBoot中的所有@Conditional注解及作用
+    @ConditionalOnBean:当容器中有指定的Bean的条件下  
+    @ConditionalOnClass：当类路径下有指定的类的条件下  
+    @ConditionalOnExpression:基于SpEL表达式作为判断条件  
+    @ConditionalOnJava:基于JVM版本作为判断条件  
+    @ConditionalOnJndi:在JNDI存在的条件下查找指定的位置  
+    @ConditionalOnMissingBean:当容器中没有指定Bean的情况下  
+    @ConditionalOnMissingClass:当类路径下没有指定的类的条件下  
+    @ConditionalOnNotWebApplication:当前项目不是Web项目的条件下  
+    @ConditionalOnProperty:指定的属性是否有指定的值  
+    @ConditionalOnResource:类路径下是否有指定的资源  
+    @ConditionalOnSingleCandidate:当指定的Bean在容器中只有一个，或者在有多个Bean的情况下，用来指定首选的Bean @ConditionalOnWebApplication:当前项目是Web项目的条件下  
+```

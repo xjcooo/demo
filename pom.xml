@@ -15,6 +15,8 @@
         <module>demo_parent</module>
         <module>demo_mq</module>
         <module>demo_web</module>
+        <module>demo_springboot_starter</module>
+        <module>demo_springboot_starter_example</module>
     </modules>
 
 </project>
