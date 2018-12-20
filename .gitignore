@@ -1,6 +1,7 @@
 # IntelliJ IDEA files
 .idea/*
 *.iml
+
 # Maven build files
 */target/
 *.log
