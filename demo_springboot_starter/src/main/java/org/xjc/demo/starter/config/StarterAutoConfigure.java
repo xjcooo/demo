@@ -28,7 +28,7 @@ public class StarterAutoConfigure {
 
     @Bean
     @ConditionalOnMissingBean
-    @ConditionalOnProperty(prefix = "demo.starter.service", value = "enabled", havingValue = "true")
+    @ConditionalOnProperty(prefix = "demo.starter.service", value = "enabled", havingValue = "true", matchIfMissing = true)
     StarterService starterService (){
         return new StarterService(properties.getConfig());
     }
