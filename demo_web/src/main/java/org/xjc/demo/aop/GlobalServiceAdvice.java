@@ -37,12 +37,14 @@ public class GlobalServiceAdvice {
     @AfterReturning(pointcut = "serviceLog()", returning = "ret")
     public void doAfterReturning(Object ret) throws Throwable {
         logger.info("[GlobalServiceAdvice] afterReturning, return={},spend {}", ret, System.currentTimeMillis() - startTime.get());
+        startTime.remove();
     }
 
     // 不能使用JoinPoint入参
     @AfterThrowing(pointcut = "serviceLog()", throwing = "ex")
     public void doAfterThrowing(Throwable ex) throws Throwable {
         logger.error("[GlobalServiceAdvice] afterThrowing, method={}, throwable={}", ex.getMessage());
+        startTime.remove();
     }
 
     @Around("serviceLog()")
