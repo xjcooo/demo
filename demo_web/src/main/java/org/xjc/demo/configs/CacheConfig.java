@@ -68,6 +68,7 @@ public class CacheConfig {
 
     /**
      * key值生成器，需要在@Cacheable的keyGenerator属性中配置该生成器，例如（@Cacheable(keyGenerator="keyGenerator")
+     *
      * @return
      */
     @Bean

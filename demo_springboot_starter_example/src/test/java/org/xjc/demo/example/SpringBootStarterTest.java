@@ -31,9 +31,9 @@ public class SpringBootStarterTest {
     @Test
     public void testStarted() {
         String[] rs = starterService.split(",");
-        log.info("size={}, strings={}",rs.length, Joiner.on("|").join(rs));
+        log.info("size={}, strings={}", rs.length, Joiner.on("|").join(rs));
         rs = starterService.split("-");
-        log.info("size={}, strings={}",rs.length, Joiner.on("|").join(rs));
+        log.info("size={}, strings={}", rs.length, Joiner.on("|").join(rs));
     }
 
 }

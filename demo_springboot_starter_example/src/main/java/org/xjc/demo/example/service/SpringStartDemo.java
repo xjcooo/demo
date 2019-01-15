@@ -15,7 +15,7 @@ public class SpringStartDemo {
     @Autowired
     private StarterService starterService;
 
-    public void split(){
+    public void split() {
         String[] rs = starterService.split(",");
         log.info("{}", rs);
         rs = starterService.split("-");

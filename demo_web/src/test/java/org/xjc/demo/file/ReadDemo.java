@@ -20,7 +20,7 @@ public class ReadDemo {
      * @return: void
      */
     public static void main(String[] args) throws Exception {
-		ReadBlod2Pictures();
+        ReadBlod2Pictures();
 //        insertImage();
     }
 

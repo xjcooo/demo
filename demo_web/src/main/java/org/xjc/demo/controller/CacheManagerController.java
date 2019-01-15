@@ -23,12 +23,12 @@ public class CacheManagerController {
     private CacheManagerService cacheManagerService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public List<String> getCacheNames(){
+    public List<String> getCacheNames() {
         return cacheManagerService.getCacheNames();
     }
 
     @RequestMapping(value = "/{cacheName}/{key}", method = RequestMethod.GET)
-    public Object getCacheValue(@PathVariable String cacheName,@PathVariable String key){
+    public Object getCacheValue(@PathVariable String cacheName, @PathVariable String key) {
         return cacheManagerService.get(Joiner.on("#").join(cacheName, key)).get();
     }
 }
