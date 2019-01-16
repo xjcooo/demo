@@ -11,6 +11,8 @@ import java.net.Socket;
 
 /**
  * 阻塞io服务端
+ *
+ * 未实现使用线程池来做伪异步
  * Created by xjc on 2019-1-15.
  */
 @Slf4j
