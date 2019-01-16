@@ -10,7 +10,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
- * 阻塞io
+ * 阻塞io服务端
  * Created by xjc on 2019-1-15.
  */
 @Slf4j
@@ -60,6 +60,11 @@ public class SocketServer {
                     break;
                 }
                 log.info("socket body is [{}]", body);
+                if (body.startsWith("login")) {
+                    writer.println("hello," + body.replace("login:", ""));
+                } else {
+                    writer.println("message:" + body);
+                }
             }
         } catch (IOException e) {
             log.error("parsing socket error", e);
