@@ -10,12 +10,12 @@ import java.net.InetAddress;
  * Created by xjc on 2019-1-16.
  */
 @Slf4j
-public class TimeServerHandler extends SimpleChannelInboundHandler<String> {
+public class TimeServerHandler extends SimpleChannelInboundHandler {
 
     @Override
-    protected void channelRead0(ChannelHandlerContext channelHandlerContext, String message) throws Exception {
-        log.info("remote ip:{}, message:{}", channelHandlerContext.channel().remoteAddress(), message);
-        channelHandlerContext.writeAndFlush("receiver message:" + message);
+    public void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
+        log.info("remote ip:{}, message:{}", ctx.channel().remoteAddress(), msg.toString());
+        ctx.writeAndFlush("receiver message:" + msg.toString());
     }
 
     /**
@@ -27,7 +27,7 @@ public class TimeServerHandler extends SimpleChannelInboundHandler<String> {
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         log.info("RemoteAddress : {} active !", ctx.channel().remoteAddress());
-        ctx.writeAndFlush( "Welcome to " + InetAddress.getLocalHost().getHostName() + " service!\n");
+        ctx.writeAndFlush( "Welcome to " + InetAddress.getLocalHost().getHostName() + " service!\r\n");
         super.channelActive(ctx);
     }
 }

@@ -5,6 +5,8 @@ import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.string.StringDecoder;
+import io.netty.handler.codec.string.StringEncoder;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -45,7 +47,8 @@ public class TimeServer {
     private class ChildChannelHandler extends ChannelInitializer<SocketChannel> {
         @Override
         protected void initChannel(SocketChannel socketChannel) throws Exception {
-            socketChannel.pipeline().addLast(new TimeServerHandler());
+            socketChannel.pipeline().addLast(new TimeServerHandler())
+                    .addLast(new StringDecoder()).addLast(new StringEncoder());
         }
     }
 }
