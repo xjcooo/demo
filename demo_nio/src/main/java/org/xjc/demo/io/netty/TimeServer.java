@@ -1,7 +1,10 @@
 package org.xjc.demo.io.netty;
 
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.channel.*;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelOption;
+import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
@@ -30,25 +33,24 @@ public class TimeServer {
         server.group(bossGroup, workerGroup)
                 .channel(NioServerSocketChannel.class)
                 .option(ChannelOption.SO_BACKLOG, 1024)
-                .childHandler(new ChildChannelHandler());
+                .childHandler(new ChannelInitializer<SocketChannel>() {
+
+                    @Override
+                    protected void initChannel(SocketChannel socketChannel) throws Exception {
+                        socketChannel.pipeline().addLast(new TimeServerHandler())
+                                .addLast(new StringDecoder()).addLast(new StringEncoder());
+                    }
+                });
 
         try {
             ChannelFuture f = server.bind(port).sync();
 
-            log.info("TimeServer started");
+            log.info("TimeServer started at port:{}", port);
             // 等待服务端监听端口关闭
             f.channel().closeFuture().sync();
         } finally {
             bossGroup.shutdownGracefully();
             workerGroup.shutdownGracefully();
-        }
-    }
-
-    private class ChildChannelHandler extends ChannelInitializer<SocketChannel> {
-        @Override
-        protected void initChannel(SocketChannel socketChannel) throws Exception {
-            socketChannel.pipeline().addLast(new TimeServerHandler())
-                    .addLast(new StringDecoder()).addLast(new StringEncoder());
         }
     }
 }

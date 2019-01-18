@@ -23,7 +23,14 @@ public class Client {
     public static void main(String[] args) throws InterruptedException, IOException {
         EventLoopGroup group = new NioEventLoopGroup();
         Bootstrap bootstrap = new Bootstrap();
-        bootstrap.group(group).channel(NioSocketChannel.class).handler(new ChildChannelHandler());
+        bootstrap.group(group).channel(NioSocketChannel.class).handler(new ChannelInitializer<Channel>() {
+            @Override
+            protected void initChannel(Channel channel) throws Exception {
+                channel.pipeline().addLast(new TimeClientHandler())
+                        .addLast("StringDecoder", new StringDecoder())
+                        .addLast("StringEncoder", new StringEncoder());
+            }
+        });
 
         try {
             Channel ch = bootstrap.connect("127.0.0.1", 8080).sync().channel();
@@ -35,7 +42,7 @@ public class Client {
                 if (line == null)
                     continue;
 
-                if("quit".equalsIgnoreCase(line))
+                if ("quit".equalsIgnoreCase(line))
                     break;
 
                 ch.writeAndFlush(line + "\r\n");
@@ -45,12 +52,4 @@ public class Client {
         }
     }
 
-    private static class ChildChannelHandler extends ChannelInitializer<Channel> {
-        @Override
-        protected void initChannel(Channel channel) throws Exception {
-            channel.pipeline().addLast(new TimeClientHandler())
-                    .addLast("StringDecoder", new StringDecoder())
-                    .addLast("StringEncoder", new StringEncoder());
-        }
-    }
 }
