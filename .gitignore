@@ -10,5 +10,6 @@
 *.settings/
 *.project
 *.classpath
+.matedata/*
 
 # others
