@@ -7,6 +7,7 @@
 - [4. lombok](#4-lombok)
 - [5. redis做集中式缓存](#5-redis做集中式缓存)
 - [6. 自定义SpringBoot-starter开发](#6-自定义springboot-starter开发)
+- [7. Spring Cloud Alibaba Nacos](#7-spring_cloud_alibaba_nacos)
 ## 1. swagger2
 
 访问url：http://localhost:8080/swagger-ui.html
@@ -122,3 +123,4 @@ SpringMVC异常分两种：1.访问页面异常，2.restful访问异常
     @ConditionalOnSingleCandidate:当指定的Bean在容器中只有一个，或者在有多个Bean的情况下，
         用来指定首选的Bean @ConditionalOnWebApplication:当前项目是Web项目的条件下  
 ```
+## 7. Spring Cloud Alibaba Nacos
