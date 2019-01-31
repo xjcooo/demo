@@ -18,6 +18,7 @@
         <module>demo_springboot_starter</module>
         <module>demo_springboot_starter_example</module>
         <module>demo_nio</module>
+        <module>demo_springcloud_nacos</module>
     </modules>
 
 </project>
