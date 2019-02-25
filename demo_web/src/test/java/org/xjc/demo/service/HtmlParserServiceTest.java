@@ -25,7 +25,7 @@ public class HtmlParserServiceTest {
 
     @Test
     public void getWechatPicUrl(){
-        String url = "https://mp.weixin.qq.com/s/p8oth9-7QKTlMn3Udthr3w";
+        String url = "https://mp.weixin.qq.com/s/WSGlUfan9tHPouIvi5pz-A";
         String s = htmlParserService.getWechatTitlePic(url);
         log.info(s);
 

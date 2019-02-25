@@ -4,6 +4,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.xjc.demo.service.HtmlParserService;
 
+import java.awt.*;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+import java.awt.datatransfer.Transferable;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -71,5 +75,16 @@ public class HtmlParseServiceImpl implements HtmlParserService {
             log.error("源码解析异常", e);
         }
         return null;
+    }
+
+    public static void main(String[] args) {
+        String url = "https://mp.weixin.qq.com/s/N8ApX4M3Bp43Rk_kaKkIyQ";
+        String s = new HtmlParseServiceImpl().getWechatTitlePic(url);
+        log.info(s);
+
+        System.setProperty("java.awt.headless", "false");
+        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+        Transferable text = new StringSelection(s);
+        clipboard.setContents(text, null);
     }
 }
