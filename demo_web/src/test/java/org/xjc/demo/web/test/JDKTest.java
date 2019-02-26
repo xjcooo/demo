@@ -12,5 +12,14 @@ public class JDKTest {
         Queue queue;
         Deque deque;
     }
+    static StringBuilder sb = new StringBuilder();
+    public static void test(){
+        sb.append("str1");
+        sb.insert(1, "str");
+    }
 
+    public static void main(String[] args) {
+        test();
+        System.out.println(sb);
+    }
 }

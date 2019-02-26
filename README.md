@@ -124,3 +124,11 @@ SpringMVC异常分两种：1.访问页面异常，2.restful访问异常
         用来指定首选的Bean @ConditionalOnWebApplication:当前项目是Web项目的条件下  
 ```
 ## 7. Spring Cloud Alibaba Nacos
+
+## 8. 自定义注解方式redis分布式锁
+注解:@DistributedLock @DistributedParam
+分布式锁key生成器:LockAopKeyGenerator
+生成器注册:BeanConfigs.lockKeyGenerator()
+锁拦截器:LockMethodInterceptor
+
+使用用例:UserServiceImpl.getUserById

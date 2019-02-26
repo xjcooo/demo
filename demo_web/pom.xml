@@ -15,7 +15,10 @@
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
-
+        <dependency>
+            <groupId>org.xjc.demo</groupId>
+            <artifactId>demo_common</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -131,7 +134,7 @@
                 </executions>
                 <configuration>
                     <dateFormat>yyyy-MM-dd HH:mm:ss</dateFormat>
-                    <dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
+                    <dotGitDirectory>${project.basedir}/../.git</dotGitDirectory>
                     <generateGitPropertiesFilename>target/classes/git.properties</generateGitPropertiesFilename>
                 </configuration>
             </plugin>
