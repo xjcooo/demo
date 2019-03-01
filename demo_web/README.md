@@ -8,6 +8,8 @@
 - [5. redis做集中式缓存](#5-redis做集中式缓存)
 - [6. 自定义SpringBoot-starter开发](#6-自定义springboot-starter开发)
 - [7. Spring Cloud Alibaba Nacos](#7-spring_cloud_alibaba_nacos)
+- [8. 自定义注解方式redis分布式锁](#8-自定义注解方式redis分布式锁)
+- [9. logback使用](#9-logback使用)
 ## 1. swagger2
 
 访问url：http://localhost:8080/swagger-ui.html
@@ -132,3 +134,98 @@ SpringMVC异常分两种：1.访问页面异常，2.restful访问异常
 锁拦截器:LockMethodInterceptor
 
 使用用例:UserServiceImpl.getUserById
+
+## 9. logback使用
+```xml
+<!--读取spring容器中的配置属性-->
+<springProperty scope="context" name="appName" source="spring.application.name" />
+<!--定义属性-->
+<property name="LOG_PATH" value="phantom-log" />
+
+```
+### a. <filter>标签 常见过滤器有:LevelFilter/ThresholdFilter/EvaluatorFilter,分别是日志级别过滤器/临界值过滤器(过滤掉低于指定临界值的日志)/求值过滤器
+
+```xml
+<!--ch.qos.logback.classic.filter.LevelFilter配置:-->
+    <!--    节点<onMatch>/<onMismatch>的值有三个可选:DENY，NEUTRAL，ACCEPT    -->
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">   
+    <!--    例子:过滤掉非INFO级别的日志-->
+        <!--    过滤器配置的日志级别    -->
+        <level>INFO</level>
+        <!--    配置符合过滤条件的操作    -->
+        <onMatch>ACCEPT</onMatch>   
+        <!--    配置不符合过滤条件的操作    -->
+        <onMismatch>DENY</onMismatch>   
+    </filter>
+    
+<!--ch.qos.logback.classic.filter.ThresholdFilter配置:-->
+    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">   
+    <!--    例子:过滤掉低于指定临界值的日志    -->
+        <level>INFO</level>
+    </filter>
+    
+    
+<!--ch.qos.logback.core.filter.EvaluatorFilter配置:-->
+    <!--    节点<onMatch>/<onMismatch>的值有三个可选:DENY，NEUTRAL，ACCEPT    -->
+    <filter class="ch.qos.logback.core.filter.EvaluatorFilter">  
+    <!--    例子:过滤掉所有日志消息中不包含“billing”字符串的日志       -->
+        <evaluator> 
+        <!-- 
+            默认为 ch.qos.logback.classic.boolex.JaninoEventEvaluator
+            鉴别器，常用的鉴别器是JaninoEventEvaluato，也是默认的鉴别器，它以任意的java布尔值表达式作为求值条件，
+            求值条件在配置文件解释过成功被动态编译，布尔值表达式返回true就表示符合过滤条件。
+            evaluator有个子标签<expression>，用于配置求值条件
+        -->   
+            <expression>return message.contains("billing");</expression>   
+        </evaluator>   
+        <OnMatch>ACCEPT</OnMatch>  
+        <OnMismatch>DENY</OnMismatch>  
+    </filter>
+```
+#### a.a EvaluatorFilter过滤器中<expression>标签中表达式可以使用的字段以及说明(说明格式:name|type|description):
+
+event|LoggingEvent|与记录请求相关联的原始记录事件，下面所有变量都来自event，例如，event.getMessage()返回下面"message"相同的字符串
+
+message|String|日志的原始消息，例如，设有logger mylogger，"name"的值是"AUB"，对于 mylogger.info("Hello {}",name); "Hello {}"就是原始消息
+
+formatedMessage|String|日志被各式话的消息，例如，设有logger mylogger，"name"的值是"AUB"，对于 mylogger.info("Hello {}",name); "Hello Aub"就是格式化后的消息
+
+logger|String|logger名
+
+loggerContext|LoggerContextVO|日志所属的logger上下文
+
+level|int|级别对应的整数值，所以 level > INFO 是正确的表达式
+
+timeStamp|long|创建日志的时间戳
+
+marker|Marker|与日志请求相关联的Marker对象，注意“Marker”有可能为null，所以你要确保它不能是null
+
+mdc|Map|包含创建日志期间的MDC所有值得map。访问方法是： mdc.get("myKey") 。mdc.get()返回的是Object不是String，要想调用String的方法就要强转，例如，((String) mdc.get("k")).contains("val") .MDC可能为null，调用时注意
+
+throwable|java.lang.Throwable|如果没有异常与日志关联"throwable" 变量为 null. 不幸的是， "throwable" 不能被序列化。在远程系统上永远为null，对于与位置无关的表达式请使用下面的变量throwableProxy
+
+throwableProxy|IThrowableProxy|与日志事件关联的异常代理。如果没有异常与日志事件关联，则变量"throwableProxy" 为 null. 当异常被关联到日志事件时，"throwableProxy" 在远程系统上不会为null
+
+#### a.b <matcher>说明
+<matcher>是<evaluator>的子标签,尽管可以使用String类的matches()方法进行模式匹配，但会导致每次调用过滤器时都会创建一个新的Pattern对象，为了消除这种开销，可以预定义一个或多个matcher对象，定以后就可以在求值表达式中重复引用.
+<matcher>中包含两个子标签，一个是<name>，用于定义matcher的名字，求值表达式中使用这个名字来引用matcher；另一个是<regex>，用于配置匹配条件
+```xml
+<filter class="ch.qos.logback.core.filter.EvaluatorFilter">   
+    <evaluator>           
+        <matcher>   
+          <Name>odd</Name>   
+          <!-- filter out odd numbered statements -->   
+          <regex>statement [13579]</regex>   
+        </matcher>   
+        <expression>odd.matches(formattedMessage)</expression>
+    </evaluator>   
+    <OnMismatch>NEUTRAL</OnMismatch>   
+    <OnMatch>DENY</OnMatch>   
+</filter>   
+```
+### b. <encoder>标签
+下面是常见的几个encoder:net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder
+
+#### b.a net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder
+
+#### b.b net.logstash.logback.encoder.LogstashEncoder
