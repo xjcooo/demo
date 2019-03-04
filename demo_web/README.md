@@ -206,9 +206,9 @@ throwable|java.lang.Throwable|如果没有异常与日志关联"throwable" 变�
 
 throwableProxy|IThrowableProxy|与日志事件关联的异常代理。如果没有异常与日志事件关联，则变量"throwableProxy" 为 null. 当异常被关联到日志事件时，"throwableProxy" 在远程系统上不会为null
 
-#### a.b <matcher>说明
-<matcher>是<evaluator>的子标签,尽管可以使用String类的matches()方法进行模式匹配，但会导致每次调用过滤器时都会创建一个新的Pattern对象，为了消除这种开销，可以预定义一个或多个matcher对象，定以后就可以在求值表达式中重复引用.
-<matcher>中包含两个子标签，一个是<name>，用于定义matcher的名字，求值表达式中使用这个名字来引用matcher；另一个是<regex>，用于配置匹配条件
+#### a.b `<matcher>`说明
+`<matcher>`是`<evaluator>`的子标签,尽管可以使用String类的matches()方法进行模式匹配，但会导致每次调用过滤器时都会创建一个新的Pattern对象，为了消除这种开销，可以预定义一个或多个matcher对象，定以后就可以在求值表达式中重复引用.
+`<matcher>`中包含两个子标签，一个是`<name>`，用于定义matcher的名字，求值表达式中使用这个名字来引用matcher；另一个是`<regex>`，用于配置匹配条件
 ```xml
 <filter class="ch.qos.logback.core.filter.EvaluatorFilter">   
     <evaluator>           
