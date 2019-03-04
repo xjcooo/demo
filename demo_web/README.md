@@ -208,28 +208,19 @@ SpringMVC异常分两种：1.访问页面异常，2.restful访问异常
     </filter>
 ```
 #### a.a EvaluatorFilter过滤器中<expression>标签中表达式可以使用的字段以及说明(说明格式:name|type|description):
-
-event|LoggingEvent|与记录请求相关联的原始记录事件，下面所有变量都来自event，例如，event.getMessage()返回下面"message"相同的字符串
-
-message|String|日志的原始消息，例如，设有logger mylogger，"name"的值是"AUB"，对于 mylogger.info("Hello {}",name); "Hello {}"就是原始消息
-
-formatedMessage|String|日志被各式话的消息，例如，设有logger mylogger，"name"的值是"AUB"，对于 mylogger.info("Hello {}",name); "Hello Aub"就是格式化后的消息
-
-logger|String|logger名
-
-loggerContext|LoggerContextVO|日志所属的logger上下文
-
-level|int|级别对应的整数值，所以 level > INFO 是正确的表达式
-
-timeStamp|long|创建日志的时间戳
-
-marker|Marker|与日志请求相关联的Marker对象，注意“Marker”有可能为null，所以你要确保它不能是null
-
-mdc|Map|包含创建日志期间的MDC所有值得map。访问方法是： mdc.get("myKey") 。mdc.get()返回的是Object不是String，要想调用String的方法就要强转，例如，((String) mdc.get("k")).contains("val") .MDC可能为null，调用时注意
-
-throwable|java.lang.Throwable|如果没有异常与日志关联"throwable" 变量为 null. 不幸的是， "throwable" 不能被序列化。在远程系统上永远为null，对于与位置无关的表达式请使用下面的变量throwableProxy
-
-throwableProxy|IThrowableProxy|与日志事件关联的异常代理。如果没有异常与日志事件关联，则变量"throwableProxy" 为 null. 当异常被关联到日志事件时，"throwableProxy" 在远程系统上不会为null
+|name|type|description|
+|---|---|-------------|
+|event|LoggingEvent|与记录请求相关联的原始记录事件，下面所有变量都来自event，例如，event.getMessage()返回下面"message"相同的字符串|
+|message|String|日志的原始消息，例如，设有logger mylogger，"name"的值是"AUB"，对于 mylogger.info("Hello {}",name); "Hello {}"就是原始消息|
+|formatedMessage|String|日志被各式话的消息，例如，设有logger mylogger，"name"的值是"AUB"，对于 mylogger.info("Hello {}",name); "Hello Aub"就是格式化后的消息|
+|logger|String|logger名|
+|loggerContext|LoggerContextVO|日志所属的logger上下文|
+|level|int|级别对应的整数值，所以 level > INFO 是正确的表达式|
+|timeStamp|long|创建日志的时间戳|
+|marker|Marker|与日志请求相关联的Marker对象，注意“Marker”有可能为null，所以你要确保它不能是null|
+|mdc|Map|包含创建日志期间的MDC所有值得map。访问方法是： mdc.get("myKey") 。mdc.get()返回的是Object不是String，要想调用String的方法就要强转，例如，((String) mdc.get("k")).contains("val") .MDC可能为null，调用时注意|
+|throwable|java.lang.Throwable|如果没有异常与日志关联"throwable" 变量为 null. 不幸的是， "throwable" 不能被序列化。在远程系统上永远为null，对于与位置无关的表达式请使用下面的变量throwableProxy|
+|throwableProxy|IThrowableProxy|与日志事件关联的异常代理。如果没有异常与日志事件关联，则变量"throwableProxy" 为 null. 当异常被关联到日志事件时，"throwableProxy" 在远程系统上不会为null|
 
 #### a.b `<matcher>`说明
 `<matcher>`是`<evaluator>`的子标签,尽管可以使用String类的matches()方法进行模式匹配，但会导致每次调用过滤器时都会创建一个新的Pattern对象，为了消除这种开销，可以预定义一个或多个matcher对象，定以后就可以在求值表达式中重复引用.
