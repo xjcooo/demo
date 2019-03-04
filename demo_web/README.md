@@ -42,7 +42,7 @@ SpringMVC异常分两种：1.访问页面异常，2.restful访问异常
 
 * 自定义线程池优雅退出配置：
     executor.setWaitForTasksToCompleteOnShutdown(true);
-    executor.setAwaitTerminationSeconds(60);    
+    executor.setAwaitTerminationSeconds(60); 
 
 ## 4. lombok
 
@@ -59,7 +59,7 @@ SpringMVC异常分两种：1.访问页面异常，2.restful访问异常
     <version>1.18.4</version>
     <scope>provided</scope>
     </dependency>
-```                   
+``` 
 常见注解：
 * @Setter
 * @Getter
@@ -77,7 +77,7 @@ SpringMVC异常分两种：1.访问页面异常，2.restful访问异常
 * @Synchronized
 * 还有log日志注解方式：
 ```java
-    //@CommonsLog
+ //@CommonsLog
     private static final org.apache.commons.logging.Log log = org.apache.commons.logging.LogFactory.getLog(LogExample.class);
     //@JBossLog
     private static final org.jboss.logging.Logger log = org.jboss.logging.Logger.getLogger(LogExample.class);
@@ -91,7 +91,7 @@ SpringMVC异常分两种：1.访问页面异常，2.restful访问异常
     private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(LogExample.class);
     //@XSlf4j
     private static final org.slf4j.ext.XLogger log = org.slf4j.ext.XLoggerFactory.getXLogger(LogExample.class);
-```                                                                                                                             
+```  
 ## 5. redis做集中式缓存
 详见CacheConfig、UserRepository， 测试类：UserRepositoryTest
 
@@ -136,6 +136,31 @@ SpringMVC异常分两种：1.访问页面异常，2.restful访问异常
 使用用例:UserServiceImpl.getUserById
 
 ## 9. logback使用
+使用范例见:resources/logback.xml
+### o. 依赖
+```xml
+<!-- json输出格式插件-->
+    <dependency>
+        <groupId>net.logstash.logback</groupId>
+        <artifactId>logstash-logback-encoder</artifactId>
+    </dependency>
+<!-- 使用slf4j输出日志-->
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+ </dependency>
+<!-- 一下两个包是logback日志-->
+    <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-core</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-classic</artifactId>
+    </dependency>
+```
+
+### o. 设置属性
 ```xml
 <!--读取spring容器中的配置属性-->
 <springProperty scope="context" name="appName" source="spring.application.name" />
@@ -147,37 +172,37 @@ SpringMVC异常分两种：1.访问页面异常，2.restful访问异常
 
 ```xml
 <!--ch.qos.logback.classic.filter.LevelFilter配置:-->
-    <!--    节点<onMatch>/<onMismatch>的值有三个可选:DENY，NEUTRAL，ACCEPT    -->
-    <filter class="ch.qos.logback.classic.filter.LevelFilter">   
-    <!--    例子:过滤掉非INFO级别的日志-->
-        <!--    过滤器配置的日志级别    -->
+    <!-- 节点<onMatch>/<onMismatch>的值有三个可选:DENY，NEUTRAL，ACCEPT -->
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+    <!-- 例子:过滤掉非INFO级别的日志-->
+        <!-- 过滤器配置的日志级别 -->
         <level>INFO</level>
-        <!--    配置符合过滤条件的操作    -->
-        <onMatch>ACCEPT</onMatch>   
-        <!--    配置不符合过滤条件的操作    -->
-        <onMismatch>DENY</onMismatch>   
+        <!-- 配置符合过滤条件的操作 -->
+        <onMatch>ACCEPT</onMatch>
+        <!-- 配置不符合过滤条件的操作 -->
+        <onMismatch>DENY</onMismatch>
     </filter>
     
 <!--ch.qos.logback.classic.filter.ThresholdFilter配置:-->
-    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">   
-    <!--    例子:过滤掉低于指定临界值的日志    -->
+    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+    <!-- 例子:过滤掉低于指定临界值的日志 -->
         <level>INFO</level>
     </filter>
     
     
 <!--ch.qos.logback.core.filter.EvaluatorFilter配置:-->
-    <!--    节点<onMatch>/<onMismatch>的值有三个可选:DENY，NEUTRAL，ACCEPT    -->
+    <!-- 节点<onMatch>/<onMismatch>的值有三个可选:DENY，NEUTRAL，ACCEPT -->
     <filter class="ch.qos.logback.core.filter.EvaluatorFilter">  
-    <!--    例子:过滤掉所有日志消息中不包含“billing”字符串的日志       -->
+    <!-- 例子:过滤掉所有日志消息中不包含“billing”字符串的日志 -->
         <evaluator> 
         <!-- 
             默认为 ch.qos.logback.classic.boolex.JaninoEventEvaluator
             鉴别器，常用的鉴别器是JaninoEventEvaluato，也是默认的鉴别器，它以任意的java布尔值表达式作为求值条件，
             求值条件在配置文件解释过成功被动态编译，布尔值表达式返回true就表示符合过滤条件。
             evaluator有个子标签<expression>，用于配置求值条件
-        -->   
-            <expression>return message.contains("billing");</expression>   
-        </evaluator>   
+        -->
+            <expression>return message.contains("billing");</expression>
+        </evaluator>
         <OnMatch>ACCEPT</OnMatch>  
         <OnMismatch>DENY</OnMismatch>  
     </filter>
@@ -210,22 +235,35 @@ throwableProxy|IThrowableProxy|与日志事件关联的异常代理。如果没�
 `<matcher>`是`<evaluator>`的子标签,尽管可以使用String类的matches()方法进行模式匹配，但会导致每次调用过滤器时都会创建一个新的Pattern对象，为了消除这种开销，可以预定义一个或多个matcher对象，定以后就可以在求值表达式中重复引用.
 `<matcher>`中包含两个子标签，一个是`<name>`，用于定义matcher的名字，求值表达式中使用这个名字来引用matcher；另一个是`<regex>`，用于配置匹配条件
 ```xml
-<filter class="ch.qos.logback.core.filter.EvaluatorFilter">   
-    <evaluator>           
-        <matcher>   
-          <Name>odd</Name>   
-          <!-- filter out odd numbered statements -->   
-          <regex>statement [13579]</regex>   
-        </matcher>   
+<filter class="ch.qos.logback.core.filter.EvaluatorFilter">
+    <evaluator>  
+        <matcher>
+          <Name>odd</Name>
+          <!-- filter out odd numbered statements -->
+          <regex>statement [13579]</regex>
+        </matcher>
         <expression>odd.matches(formattedMessage)</expression>
-    </evaluator>   
-    <OnMismatch>NEUTRAL</OnMismatch>   
-    <OnMatch>DENY</OnMatch>   
-</filter>   
+    </evaluator>
+    <OnMismatch>NEUTRAL</OnMismatch>
+    <OnMatch>DENY</OnMatch>
+</filter>
 ```
 ### b. `<encoder>`标签
-下面是常见的几个encoder:net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder
+[logstash-logback-encoder学习文档](https://www.jianshu.com/p/a26da0c55255)
+下面是常见的几个json格式输出的encoder:
+#### b.a net.logstash.logback.encoder.LogstashEncoder
+```xml
+<encoder class="net.logstash.logback.encoder.LogstashEncoder">
+    <throwableConverter class="net.logstash.logback.stacktrace.ShortenedThrowableConverter">
+        <!--正则匹配的日志信息不输出-->
+        <exclude>sun\.reflect\..*\.invoke.*</exclude>
+        <exclude>net\.sf\.cglib\.proxy\.MethodProxy\.invoke</exclude>
+        <exclude>org.*</exclude>
+        <exclude>*main*</exclude>
+        <rootCauseFirst>true</rootCauseFirst>
+    </throwableConverter>
+</encoder>
+```
+#### b.b net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder
 
-#### b.a net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder
-
-#### b.b net.logstash.logback.encoder.LogstashEncoderLoggingEventCompositeJsonEncoder
+#### b.c net.logstash.logback.encoder.LogstashEncoderLoggingEventCompositeJsonEncoder
