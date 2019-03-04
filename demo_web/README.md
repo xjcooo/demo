@@ -259,11 +259,35 @@ throwableProxy|IThrowableProxy|与日志事件关联的异常代理。如果没�
         <exclude>sun\.reflect\..*\.invoke.*</exclude>
         <exclude>net\.sf\.cglib\.proxy\.MethodProxy\.invoke</exclude>
         <exclude>org.*</exclude>
-        <exclude>*main*</exclude>
         <rootCauseFirst>true</rootCauseFirst>
     </throwableConverter>
 </encoder>
 ```
 #### b.b net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder
-
-#### b.c net.logstash.logback.encoder.LogstashEncoderLoggingEventCompositeJsonEncoder
+```xml
+<encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+  <providers>
+    <mdc/>
+    <pattern>
+      <pattern>
+        {
+          "timestamp": "%date{ISO8601}",
+          "myCustomField": "fieldValue",
+          "relative": "#asLong{%relative}"
+        }
+      </pattern>
+    </pattern>
+    <stackTrace>
+      <throwableConverter class="net.logstash.logback.stacktrace.ShortenedThrowableConverter">
+        <maxDepthPerThrowable>30</maxDepthPerThrowable>
+        <maxLength>2048</maxLength>
+        <shortenedClassNameLength>20</shortenedClassNameLength>
+        <exclude>^sun\.reflect\..*\.invoke</exclude>
+        <exclude>^net\.sf\.cglib\.proxy\.MethodProxy\.invoke</exclude>
+        <evaluator class="myorg.MyCustomEvaluator"/>
+        <rootCauseFirst>true</rootCauseFirst>
+      </throwableConverter>
+    </stackTrace>
+  </providers>
+</encoder>
+```
