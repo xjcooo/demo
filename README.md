@@ -1,5 +1,5 @@
-# demo
 ![logo](./demo_parent/images/rabbit.png "logo_rabbit")
+# demos
 这是一个demo项目，用于实践各种Java组件,包括SpringBoot/SpringCloud,但不仅限于此。
 # 子module项目说明
 |module名|内容及说明|
