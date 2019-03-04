@@ -223,9 +223,9 @@ throwableProxy|IThrowableProxy|与日志事件关联的异常代理。如果没�
     <OnMatch>DENY</OnMatch>   
 </filter>   
 ```
-### b. <encoder>标签
+### b. `<encoder>`标签
 下面是常见的几个encoder:net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder
 
 #### b.a net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder
 
-#### b.b net.logstash.logback.encoder.LogstashEncoder
+#### b.b net.logstash.logback.encoder.LogstashEncoderLoggingEventCompositeJsonEncoder
