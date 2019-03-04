@@ -260,6 +260,7 @@ SpringMVC异常分两种：1.访问页面异常，2.restful访问异常
   <providers>
     <mdc/>
     <pattern>
+<!--    json格式输出自定义字段    -->
       <pattern>
         {
           "timestamp": "%date{ISO8601}",
