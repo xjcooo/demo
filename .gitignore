@@ -13,4 +13,5 @@
 .metadata/*
 
 # others
-*data/elasticsearch/*
+/data/elasticsearch/*
+*/data/elasticsearch/*
