@@ -6,11 +6,13 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.core.Cursor;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ZSetOperations;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -71,6 +73,18 @@ public class OperatorTest {
             System.out.println(v);
         }
         System.out.println("=======================");
+    }
+
+    @Test
+    public void test2(){
+        Object object = redisTemplate.opsForHash().get("AMP_ALARM_ACCOUNT", "sms_MODULE_UNIQUE");
+        System.out.println(object);
+        Cursor<Map.Entry<Object, Object>> mapCursor = redisTemplate.opsForHash().scan("AMP_ALARM_ACCOUNT", null);
+        Map.Entry<Object, Object> entry;
+        while (mapCursor.hasNext()){
+            entry = mapCursor.next();
+            System.out.println("[entry] key : " + entry.getKey() + ", value : " + entry.getValue());
+        }
     }
 
 }
