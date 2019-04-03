@@ -1,2 +1,2 @@
 # elasticsearch链接demo
-目前还是个失败的例子,有些测试方法还跑不通
+demo依赖的es是6.6.1版本,使用springboot的版本为2.1.3.RELEASE

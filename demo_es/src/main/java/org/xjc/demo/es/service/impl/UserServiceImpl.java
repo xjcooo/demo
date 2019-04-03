@@ -8,6 +8,7 @@ import org.xjc.demo.es.repository.UserRepository;
 import org.xjc.demo.es.service.UserService;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by xjc on 2019-3-7.
@@ -22,8 +23,8 @@ public class UserServiceImpl implements UserService {
         userRepository.save(user);
     }
 
-    public void delete(Long id) {
-        userRepository.delete(id);
+    public void delete(User user) {
+        userRepository.delete(user);
     }
 
     public void update(User user) {
@@ -39,6 +40,7 @@ public class UserServiceImpl implements UserService {
     }
 
     public User getOne(Long id) {
-        return userRepository.findOne(id);
+        Optional<User> userOptional = userRepository.findById(id);
+        return userOptional.isPresent()?userOptional.get():null;
     }
 }

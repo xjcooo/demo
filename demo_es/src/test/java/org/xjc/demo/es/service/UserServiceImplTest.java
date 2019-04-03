@@ -33,28 +33,29 @@ public class UserServiceImplTest {
         user.setCreateTime(new Date());
         userService.save(user);
         user = userService.getOne(Long.valueOf(4));
-        System.out.println(user.toString());
         Assert.assertNotNull(user);
+        System.out.println(user.toString());
         Assert.assertEquals(user.getName(), "xjcooo");
     }
 
     @Test
     public void delete() {
-        userService.delete(Long.valueOf(1));
+        userService.delete(new User(Long.valueOf(1)));
         List<User> list = userService.queryAll();
         Assert.assertNotNull(list);
-        Assert.assertEquals(list.size(), 0);
+        Assert.assertEquals(list.size(), 1);
     }
 
     @Test
     public void update() {
         User user = new User();
         user.setId(Long.valueOf(1));
-        user.setName("lssooo");
+        user.setName("xjpooo");
         user.setAge(100);
         user.setMale(true);
-        userService.save(user);
-        Assert.assertEquals(userService.getOne(Long.valueOf(1)).getName(), "lssooo");
+        user.setCreateTime(new Date());
+        userService.update(user);
+        Assert.assertEquals(userService.getOne(Long.valueOf(1)).getName(), "xjpooo");
     }
 
     @Test
@@ -64,7 +65,7 @@ public class UserServiceImplTest {
             System.out.println(user);
         }
         Assert.assertNotNull(list);
-        Assert.assertEquals(list.size(), 1);
+        Assert.assertEquals(list.size(), 2);
     }
 
     @Test
@@ -74,6 +75,6 @@ public class UserServiceImplTest {
 
     @Test
     public void getOne() {
-        Assert.assertEquals(userService.getOne(Long.valueOf(1)).getName(), "xjcooo");
+        Assert.assertEquals(userService.getOne(Long.valueOf(1)).getName(), "xjpooo");
     }
 }
