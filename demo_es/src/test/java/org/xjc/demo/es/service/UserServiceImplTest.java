@@ -6,6 +6,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.xjc.demo.es.entity.OrgLevel;
+import org.xjc.demo.es.entity.Organization;
 import org.xjc.demo.es.entity.User;
 
 import java.util.Date;
@@ -31,6 +33,7 @@ public class UserServiceImplTest {
         user.setAge(100);
         user.setMale(true);
         user.setCreateTime(new Date());
+        user.setOrganization(new Organization(Long.valueOf(10), "商务部", OrgLevel.HIGHER));
         userService.save(user);
         user = userService.getOne(Long.valueOf(4));
         Assert.assertNotNull(user);
@@ -54,6 +57,7 @@ public class UserServiceImplTest {
         user.setAge(100);
         user.setMale(true);
         user.setCreateTime(new Date());
+        user.setOrganization(new Organization(Long.valueOf(20), "销售部", OrgLevel.MIDDLE));
         userService.update(user);
         Assert.assertEquals(userService.getOne(Long.valueOf(1)).getName(), "xjpooo");
     }
