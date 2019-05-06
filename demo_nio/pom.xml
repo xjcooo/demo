@@ -11,6 +11,8 @@
 
     <groupId>org.xjc.demo</groupId>
     <artifactId>demo_nio</artifactId>
+    <version>${project.version}</version>
+
     <build>
         <plugins>
             <plugin>

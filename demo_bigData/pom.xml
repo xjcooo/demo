@@ -12,6 +12,7 @@
 
     <groupId>org.xjc.demo</groupId>
     <artifactId>demo_bigData</artifactId>
+    <version>${project.version}</version>
 
     <dependencies>
         <dependency>
