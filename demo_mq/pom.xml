@@ -12,7 +12,6 @@
 
     <groupId>org.xjc.demo</groupId>
     <artifactId>demo_mq</artifactId>
-    <version>${project.version}</version>
 
     <dependencies>
         <dependency>
