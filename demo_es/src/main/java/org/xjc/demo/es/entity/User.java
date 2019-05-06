@@ -13,7 +13,7 @@ import java.util.Date;
  * Created by xjc on 2019-3-7.
  */
 @Data
-@Document(indexName = "user", type = "list")
+@Document(indexName = "users", type = "list")
 public class User {
 
     @Id
