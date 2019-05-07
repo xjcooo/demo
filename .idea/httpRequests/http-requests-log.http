@@ -1,3 +1,11 @@
+POST http://localhost:8080/user/add
+Accept: */*
+Cache-Control: no-cache
+
+{"name":"xjcooo","age":23,"male":true,"createTime":"2019-05-06T12:12:12.111+0800","organization":{"id":12,"name":"组织部","level":"LOWER"}}
+
+###
+
 POST http://localhost:8080/user/update
 Accept: */*
 Cache-Control: no-cache
