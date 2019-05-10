@@ -20,6 +20,7 @@
         <module>demo_nio</module>
         <module>demo_springcloud_nacos</module>
         <module>demo_es</module>
+        <module>demo_redis_cluster</module>
     </modules>
 
 </project>
