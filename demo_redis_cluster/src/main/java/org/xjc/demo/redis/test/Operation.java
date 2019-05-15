@@ -1,13 +1,10 @@
 package org.xjc.demo.redis.test;
 
-import com.google.common.base.Splitter;
 import redis.clients.jedis.HostAndPort;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisCluster;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by xjc on 2019-5-14.
@@ -76,6 +73,13 @@ public class Operation {
         return isCluster?jc.hget(key, field):js.hget(key, field);
     }
 
+    public void hmset(String key, Map map){
+        if (isCluster)
+            jc.hmset(key, map);
+        else
+            js.hmset(key, map);
+    }
+
     public List<String> hmget(String key, String... fields){
         return isCluster?jc.hmget(key, fields):js.hmget(key, fields);
     }
@@ -97,6 +101,11 @@ public class Operation {
     }
 
     private List<String> getIpAndPort(String url, String s) {
-        return Splitter.on(s).trimResults().omitEmptyStrings().splitToList(url);
+        List<String> list = new ArrayList<String>();
+        String[] ss = url.split(s);
+        for (int i = 0; i < ss.length; i++)
+            list.add(ss[i].trim());
+        return list;
+        //        return Splitter.on(s).trimResults().omitEmptyStrings().splitToList(url);
     }
 }
