@@ -67,6 +67,8 @@ public class OperationsTest {
         System.out.println("spendTime : " + stopWatch.getTotalTimeMillis());
     }
 
+    /*******************************************************/
+
     String singleNode = "10.0.30.114:6379";
     String clusterNode = "10.0.30.114:7000,10.0.30.62:7000,10.0.30.183:7000";
 
