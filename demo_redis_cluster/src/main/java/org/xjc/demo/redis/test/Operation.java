@@ -96,8 +96,8 @@ public class Operation {
             List<String> ipAndPort = getIpAndPort(item, ":");
             if (ipAndPort.size() != 2) throw new Exception("url格式错误");
             jedisClusterNodes.add(new HostAndPort(ipAndPort.get(0), Integer.valueOf(ipAndPort.get(1))));
-            jc = new JedisCluster(jedisClusterNodes);
         }
+        jc = new JedisCluster(jedisClusterNodes);
     }
 
     private List<String> getIpAndPort(String url, String s) {
