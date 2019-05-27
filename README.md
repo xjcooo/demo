@@ -27,3 +27,6 @@
 ![logo](./demo_parent/images/rabbit.png "logo_rabbit")
 </div>
 ```
+
+### 2. 开发者规范说明
+见develop.md
