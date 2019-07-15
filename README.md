@@ -17,6 +17,7 @@
 |demo_springboot_starter_example|demo_springboot_starter的使用说明|
 |demo_springcloud_nacos|阿里巴巴消息注册发现平台nacos的使用|
 |demo_web|springboot开发的web项目,详细见demo_web/README.md|
+|doc|文档|
 
 # 备注
 ### 1. README.md图片居中
