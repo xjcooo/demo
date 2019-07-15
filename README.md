@@ -29,4 +29,7 @@
 ```
 
 ### 2. 开发者规范说明
-见develop.md
+见[文档](doc/develop.md)
+
+### 3. java思维导图
+见[java](doc/java_xmind.md)
