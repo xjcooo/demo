@@ -50,3 +50,8 @@ info:
         name: demos
         appName: demo_web中文
 debug: true
+#server:
+#   访问DispatchServlet的规则
+#    servlet-path: /
+#   设置context-path(springboot2.0以下,2.0以上使用server.servlet.context-path)
+#    context-path: /demo
