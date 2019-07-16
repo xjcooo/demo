@@ -50,6 +50,9 @@ info:
         name: demos
         appName: demo_web中文
 debug: true
+#security:
+#    basic:
+#        enabled: false
 #server:
 #   访问DispatchServlet的规则
 #    servlet-path: /
