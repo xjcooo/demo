@@ -21,6 +21,9 @@
         <module>demo_springcloud_nacos</module>
         <module>demo_es</module>
         <module>demo_redis_cluster</module>
+
+        <module>demo2_parent</module>
+        <module>demo2_web</module>
     </modules>
 
 </project>
