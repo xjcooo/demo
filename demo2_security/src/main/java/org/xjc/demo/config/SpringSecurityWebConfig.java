@@ -1,6 +1,7 @@
 package org.xjc.demo.config;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -21,4 +22,8 @@ public class SpringSecurityWebConfig extends WebSecurityConfigurerAdapter {
 //        web.debug(true);// debug日志配置
     }
 
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.inMemoryAuthentication().withUser("admin")
+    }
 }

@@ -29,6 +29,13 @@ create table demo_role
 )
 	comment '角色表';
 
+create table demo_role_action
+(
+	role_id int not null comment '角色ID',
+	auth_id int not null comment '权限ID'
+)
+	comment '角色权限表';
+
 create table demo_user
 (
 	id int auto_increment comment '主键'
@@ -47,4 +54,11 @@ create table demo_user
 		unique (username)
 )
 	comment '用户表';
+
+create table demo_user_role
+(
+	user_id int not null comment '用户ID',
+	role_id int not null comment '角色ID'
+)
+	comment '用户角色表';
 
