@@ -11,6 +11,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("demo")
 public class DemoController {
 
+    @RequestMapping(method = RequestMethod.GET)
+    public String home() throws Exception {
+        return "index";
+    }
+
     @RequestMapping(value = "index", method = RequestMethod.GET)
     public String index() throws Exception {
         return "index";
