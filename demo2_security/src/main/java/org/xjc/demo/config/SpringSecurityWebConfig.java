@@ -1,10 +1,12 @@
 package org.xjc.demo.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
  * Created by xjc on 2019-8-1.
@@ -14,7 +16,9 @@ public class SpringSecurityWebConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        super.configure(http);
+        http.authorizeRequests().anyRequest().authenticated().and()
+                .formLogin().permitAll();
+//                .httpBasic();
     }
 
     @Override
@@ -22,8 +26,21 @@ public class SpringSecurityWebConfig extends WebSecurityConfigurerAdapter {
 //        web.debug(true);// debug日志配置
     }
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.inMemoryAuthentication().withUser("admin")
+//    @Override
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.inMemoryAuthentication().passwordEncoder(new BCryptPasswordEncoder())
+//                .withUser("admin")
+//                .password(new BCryptPasswordEncoder().encode("admin"))
+//                .roles("ADMIN");
+//    }
+
+    /*使用@Autowired方式, 可以适用跨越多个WebSecurityConfigurerAdapter的情况,*/
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth.inMemoryAuthentication().passwordEncoder(new BCryptPasswordEncoder())
+                .withUser("user")
+                .password(new BCryptPasswordEncoder().encode("user"))
+                .roles("USER");
     }
+
 }

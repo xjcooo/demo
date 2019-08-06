@@ -10,14 +10,16 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.xjc.demo</groupId>
     <artifactId>demo2_web</artifactId>
+
+    <name>demo2_web ${project.version}</name>
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>demo2_security</artifactId>
         </dependency>
+
     </dependencies>
 
 </project>

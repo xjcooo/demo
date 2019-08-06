@@ -10,8 +10,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.xjc.demo</groupId>
     <artifactId>demo2_security</artifactId>
+    <packaging>jar</packaging>
+
+    <name>demo2_security ${project.version}</name>
 
     <dependencies>
         <dependency>

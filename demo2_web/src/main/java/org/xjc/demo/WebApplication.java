@@ -13,7 +13,7 @@ public class WebApplication {
 
     public static void main(String[] args) {
         log.info("web starting ...");
-        SpringApplication.run(WebApplication.class, args);
+        SpringApplication.run(new Class[]{WebApplication.class}, args);
         log.info("web started.");
     }
 

@@ -9,6 +9,11 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
+    <modules>
+        <module>../demo2_security</module>
+        <module>../demo2_web</module>
+    </modules>
+
     <!--所有子项目默认依赖-->
     <dependencies>
         <dependency>
@@ -28,13 +33,13 @@
             </dependency>
 
             <dependency>
-                <groupId>${project.artifactId}</groupId>
+                <groupId>${project.groupId}</groupId>
                 <artifactId>demo2_security</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>${project.artifactId}</groupId>
+                <groupId>${project.groupId}</groupId>
                 <artifactId>demo2_web</artifactId>
                 <version>${project.version}</version>
             </dependency>
@@ -52,5 +57,7 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+
 
 </project>
