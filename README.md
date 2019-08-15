@@ -34,3 +34,6 @@
 
 ### 3. java思维导图
 见[java](doc/java_xmind.md)
+
+### 4. rest接口规范
+见[规范](doc/rest_standard.md)
