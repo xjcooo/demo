@@ -40,7 +40,9 @@ public class SpringSecurityWebConfig extends WebSecurityConfigurerAdapter {
 //                .roles("ADMIN");
 //    }
 
-    /*使用@Autowired方式, 可以适用跨越多个WebSecurityConfigurerAdapter的情况,*/
+    /**
+     * 使用@Autowired方式, 可以适用跨越多个WebSecurityConfigurerAdapter的情况
+     */
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(new UserDetailsService() {

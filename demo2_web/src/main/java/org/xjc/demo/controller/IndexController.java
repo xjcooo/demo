@@ -1,16 +1,16 @@
 package org.xjc.demo.controller;
 
-import org.springframework.stereotype.Controller;
+import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@Api
+@RestController
+@RequestMapping("api")
 public class IndexController {
 
     @RequestMapping(method = RequestMethod.GET)
-    @ResponseBody
-
     public String index() {
         return "index";
     }
