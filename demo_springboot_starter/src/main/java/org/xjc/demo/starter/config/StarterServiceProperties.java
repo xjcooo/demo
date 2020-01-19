@@ -5,7 +5,9 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 /**
  * 配置项
  * <p>
- * Created by xjc on 2018-12-20.
+ *
+ * @author xjc
+ * @date 2018-12-20
  */
 @ConfigurationProperties("demo.starter.service")
 public class StarterServiceProperties {
