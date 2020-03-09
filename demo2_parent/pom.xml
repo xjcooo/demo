@@ -12,8 +12,8 @@
     <name>demo2_parent ${project.version}</name>
 
     <modules>
-        <module>../demo2_security</module>
-        <module>../demo2_web</module>
+        <module>demo2_security</module>
+        <module>demo2_web</module>
     </modules>
 
     <!--所有子项目默认依赖-->

@@ -10,21 +10,8 @@
     <version>1.0-SNAPSHOT</version>
 
     <modules>
-        <module>demo_common</module>
-        <module>demo_bigData</module>
         <module>demo_parent</module>
-        <module>demo_mq</module>
-        <module>demo_web</module>
-        <module>demo_springboot_starter</module>
-        <module>demo_springboot_starter_example</module>
-        <module>demo_nio</module>
-        <module>demo_springcloud_nacos</module>
-        <module>demo_es</module>
-        <module>demo_redis_cluster</module>
-
         <module>demo2_parent</module>
-        <module>demo2_web</module>
-        <module>demo2_security</module>
     </modules>
 
 </project>

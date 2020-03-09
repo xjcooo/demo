@@ -1,0 +1,17 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "org.xjc.demo.starter.config.StarterServiceProperties",
+      "name": "demo.starter.service",
+      "type": "org.xjc.demo.starter.config.StarterServiceProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "org.xjc.demo.starter.config.StarterServiceProperties",
+      "name": "demo.starter.service.config",
+      "type": "java.lang.String"
+    }
+  ]
+}

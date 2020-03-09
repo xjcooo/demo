@@ -1,0 +1,4 @@
+org\xjc\demo\starter\config\StarterServiceProperties.class
+org\xjc\demo\starter\service\StarterService.class
+META-INF\spring-configuration-metadata.json
+org\xjc\demo\starter\config\StarterAutoConfigure.class

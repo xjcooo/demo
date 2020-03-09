@@ -1,0 +1,60 @@
+spring:
+    application:
+        name: demos
+        appName: demo_web
+    rabbitmq:
+        host: rabbit
+        port: 5672
+        username: root
+        password: root
+    redis:
+        host: redis
+        port: 6379
+        pool:
+            max-active: 8
+            max-idle: 8
+            min-idle: 0
+            max-wait: -1
+    datasource:
+        url: jdbc:mysql://127.0.0.1:3306/world
+        username: root
+        password: root
+        driver-class-name: com.mysql.jdbc.Driver
+        test:
+            url: jdbc:mysql://127.0.0.1:3306/test
+            username: root
+            password: root
+            driver-class-name: com.mysql.jdbc.Driver
+
+    mail:
+        host: smtp.exmail.qq.com
+        username: xujiancheng@touker.com
+        password: 腾讯企业邮箱密码
+        properties:
+            mail:
+                smtp:
+                    auth: true
+                    starttls:
+                        enable: false
+                        required: false
+    jpa:
+        show-sql: true
+management:
+    security:
+        enabled: false
+    info:
+        git:
+            mode: full
+info:
+    app:
+        name: demos
+        appName: demo_web中文
+debug: true
+#security:
+#    basic:
+#        enabled: false
+#server:
+#   访问DispatchServlet的规则
+#    servlet-path: /
+#   设置context-path(springboot2.0以下,2.0以上使用server.servlet.context-path)
+#    context-path: /demo
