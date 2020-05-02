@@ -1,1 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=org.xjc.demo.starter.config.StarterAutoConfigure

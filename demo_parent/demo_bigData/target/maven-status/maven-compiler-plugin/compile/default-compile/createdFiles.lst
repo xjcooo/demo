@@ -1,4 +1,0 @@
-org\xjc\demo\storm\topology\WordsCountTopology.class
-org\xjc\demo\storm\bolt\MyBolt.class
-org\xjc\demo\storm\bolt\PrintBolt.class
-org\xjc\demo\storm\sout\MySpout.class

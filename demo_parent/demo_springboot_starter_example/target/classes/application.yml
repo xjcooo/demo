@@ -1,5 +1,0 @@
-demo:
-    starter:
-        service:
-            enabled: true
-            config: abc-des-dde,SSS-DRS-RE,SDR-SDFR-XXX
