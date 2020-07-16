@@ -3,7 +3,7 @@
 *.iml
 
 # Maven build files
-*/target/
+**/target/
 *.log
 
 # eclipse files
